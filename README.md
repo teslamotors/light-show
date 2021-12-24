@@ -7,10 +7,11 @@ Welcome to the Tesla Light Show xLights guide! You can create and run your own l
 ## Running a custom show on a vehicle
 A custom show can be run on a supported vehicle by loading it via a USB flash drive. Create and share your shows with others! A single show can be shared and run on any supported vehicle; they are not model-specific. The sequence data is stored in a .fseq file and the music comes from your choice of .mp3 or .wav.
 ### Supported Vehicles
-- Model S (2021 +)
-- Model X (2021 +)
+- Model S (2021+)
+- Model X (2021+)
 - Model 3
 - Model Y
+- Running Software v11.0 (2021.44.25) or newer
 ### USB flash drive requirements
 - Must contain a base-level folder called "LightShow" (without quotation marks and case sensitive).
 - The LightShow folder must contain 2 files:
