@@ -20,7 +20,7 @@ class ValidationResults:
     step_time: int
     duration_s: int
     memory_usage: float
-
+    command_count: int
 
 def validate(file):
     file_name = Path(file.name).name
@@ -78,9 +78,9 @@ def validate(file):
     memory_usage = count / MEMORY_LIMIT
 
     if memory_usage > 1:
-        raise ValidationError(f"Sequence uses more than 100% of the available memory: {memory_usage * 100:.2f}%")
+        raise ValidationError(f"Sequence uses {count} commands. The maximum allowed is {MEMORY_LIMIT}.")
 
-    return ValidationResults(frame_count, step_time, duration_s, memory_usage)
+    return ValidationResults(frame_count, step_time, duration_s, memory_usage, count)
 
 
 if __name__ == "__main__":
