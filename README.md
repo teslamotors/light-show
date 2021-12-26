@@ -105,8 +105,9 @@ An example sequence is provided that can be run on the vehicle and/or opened in 
 10. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
 ## Light Show Sequence Validator Script
-A Python validator script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
+A Python and Node.js validator script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
+### Python:
 For usage, run:
 ```
 python3 validator.py lightshow.fseq
@@ -118,6 +119,20 @@ Expected output looks like:
 Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
 Used 16.45% of the available memory
 ```
+
+### Node.js:
+For usage, run:
+```
+node node_validator/validator.js examples/lightshow_example_1/lightshow.fseq
+```
+
+Expected output looks like:
+```
+> node node_validator/validator.js examples/lightshow_example_1/lightshow.fseq
+Found 2247 frames, step time of 20 ms for a total duration of 00:00:44.940
+Used 16.45% of the available memory
+```
+
 
 ## Boolean Light Channels
 Most lights available on the vehicle can only turn on or off instantly, which corresponds to 0% or 100% brightness of an 'Effect' in xLights.
