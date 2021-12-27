@@ -2,13 +2,15 @@ const struct = require('python-struct');
 const fs = require('fs');
 
 const validation = validator(fs.readFileSync(process.argv[2]));
-const durationFormatted = new Date(validation.durationSecs * 1000).toISOString().substr(11, 12);
 
 if(validation.error) {
-    console.error(validation.error);
+    console.error('VALIDATION ERROR:', validation.error);
+    process.exit(1);
 } else {
+    const durationFormatted = new Date(validation.durationSecs * 1000).toISOString().substr(11, 12);
+    const memoryUsage = parseFloat((validation.memoryUsage * 100).toFixed(2))
     console.log(`Found ${validation.frameCount} frames, step time of ${validation.stepTime} ms for a total duration of ${durationFormatted}`);
-    console.log(`Used ${validation.memoryUsage}% of the available memory`);
+    console.log(`Used ${memoryUsage}% of the available memory`);
 }
 
 function validator(data) {
@@ -101,7 +103,13 @@ function validator(data) {
         pos += GAP;
     }
 
-    let memoryUsage = parseFloat(((count / MEMORY_LIMIT) * 100).toFixed(2))
+    const memoryUsage = count / MEMORY_LIMIT;
+
+    if(memoryUsage > 1) {
+        return {
+            error: `Sequence uses ${count} commands. The maximum allowed is ${MEMORY_LIMIT}`
+        }
+    }
 
     return {
         frameCount,
