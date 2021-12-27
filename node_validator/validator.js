@@ -1,4 +1,3 @@
-const struct = require('python-struct');
 const fs = require('fs');
 
 const validation = validator(fs.readFileSync(process.argv[2]));
@@ -26,11 +25,13 @@ function validator(data) {
 
     let magic = String.fromCharCode(...data.slice(0,4));
 
-    let [ start, minor, major ] = struct.unpack('<HBB', Buffer.from(data.slice(4, 8)));
-
-    let [ chCount, frameCount, stepTime ] = struct.unpack('<IIB', Buffer.from(data.slice(10, 19)));
-
-    let [ compressionType ] = struct.unpack('<B', Buffer.from(data.slice(20,21)));
+    let start = data.readUIntLE(4, 2);
+    let minor = data.readUIntLE(6, 1);
+    let major = data.readUIntLE(7, 1);
+    let chCount = data.readUIntLE(10, 4);
+    let frameCount = data.readUIntLE(14, 4);
+    let stepTime = data.readUIntLE(18, 1);
+    let compressionType = data.readUIntLE(20, 1);
 
     if (magic !== 'PSEQ' || start < 24 || frameCount < 1 || stepTime < 15 || minor !== 0 || major !== 2) {
         return {
@@ -77,7 +78,7 @@ function validator(data) {
         pos += CLOSURE_BUFFER_LEN;
 
         let light_state = Array.from(lights.map(b => b > 127 ? 1 : 0));
-        let ramp_state = Array.from(lights.slice(0, 14).map(b => Math.min(Math.floor(b > 127 ? 255 - b : b / 2), 3)));
+        let ramp_state = Array.from(lights.slice(0, 14).map(b => Math.min((Math.floor((b > 127 ? 255 - b : b) / 13) + 1) / 2, 3)));
         let closure_state = Array.from(closures.map(b => Math.floor(Math.floor(b / 32) + 1) / 2));
 
         if(!arraysEqual(light_state, prevLight)) {
