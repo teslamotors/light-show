@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const validation = validator(fs.readFileSync(process.argv[2]));
+const validation = validator(fs.readFileSync(process.argv[2]).buffer);
 
 if(validation.error) {
     console.error('VALIDATION ERROR:', validation.error);
@@ -12,9 +12,13 @@ if(validation.error) {
     console.log(`Used ${memoryUsage}% of the available memory`);
 }
 
+/**
+ * Validates a FSEQ file per specs defined at https://github.com/teslamotors/light-show
+ * @param {(ArrayBuffer|ArrayBufferLike)} data
+ * @returns {{error: string}|{frameCount: number, memoryUsage: number, durationSecs: number, stepTime: number}}
+ */
 function validator(data) {
     const MEMORY_LIMIT = 681;
-
     const arraysEqual = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
 
     if(!data) {
@@ -23,15 +27,17 @@ function validator(data) {
         };
     }
 
-    let magic = String.fromCharCode(...data.slice(0,4));
+    let magic = String.fromCharCode(...new Uint8Array(data.slice(0,4)));
 
-    let start = data.readUIntLE(4, 2);
-    let minor = data.readUIntLE(6, 1);
-    let major = data.readUIntLE(7, 1);
-    let chCount = data.readUIntLE(10, 4);
-    let frameCount = data.readUIntLE(14, 4);
-    let stepTime = data.readUIntLE(18, 1);
-    let compressionType = data.readUIntLE(20, 1);
+    let header = new DataView(data.slice(0, 22));
+
+    let start = header.getUint8(4);
+    let minor = header.getUint8(6);
+    let major = header.getUint8(7);
+    let chCount = header.getUint32(10, true);
+    let frameCount = header.getUint32(14, true);
+    let stepTime = header.getUint8(18);
+    let compressionType = header.getUint8(20);
 
     if (magic !== 'PSEQ' || start < 24 || frameCount < 1 || stepTime < 15 || minor !== 0 || major !== 2) {
         return {
@@ -71,10 +77,10 @@ function validator(data) {
     const GAP = 2;
 
     for(let i = 0; i < frameCount; i++) {
-        let lights = data.slice(pos, pos + LIGHT_BUFFER_LEN);
+        let lights = new Uint8Array(data.slice(pos, pos + LIGHT_BUFFER_LEN));
         pos += LIGHT_BUFFER_LEN;
 
-        let closures = data.slice(pos, pos + CLOSURE_BUFFER_LEN);
+        let closures = new Uint8Array(data.slice(pos, pos + CLOSURE_BUFFER_LEN));
         pos += CLOSURE_BUFFER_LEN;
 
         let light_state = Array.from(lights.map(b => b > 127 ? 1 : 0));
