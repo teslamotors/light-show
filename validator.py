@@ -96,5 +96,5 @@ if __name__ == "__main__":
             print(e)
             sys.exit(1)
 
-    print(f"Found {results.frame_count} frames, step time of {results.step_time} ms for a total duration of {datetime.timedelta(seconds=results.duration_s)}.")
+    print(f"Found {results.frame_count} frames and {results.command_count} commands, step time of {results.step_time} ms for a total duration of {datetime.timedelta(seconds=results.duration_s)}.")
     print(f"Used {results.memory_usage*100:.2f}% of the available memory")
