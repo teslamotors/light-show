@@ -123,12 +123,12 @@ Used 16.45% of the available memory
 ### Node.js:
 For usage, run:
 ```
-node node_validator/validator.js examples/lightshow_example_1/lightshow.fseq
+node validator.js examples/lightshow_example_1/lightshow.fseq
 ```
 
 Expected output looks like:
 ```
-> node node_validator/validator.js examples/lightshow_example_1/lightshow.fseq
+> node validator.js examples/lightshow_example_1/lightshow.fseq
 Found 2247 frames, step time of 20 ms for a total duration of 00:00:44.940
 Used 16.45% of the available memory
 ```
