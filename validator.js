@@ -15,17 +15,19 @@ if(validation.error) {
 /**
  * Validates a FSEQ file per specs defined at https://github.com/teslamotors/light-show
  * @param {(ArrayBuffer|ArrayBufferLike)} data
- * @returns {{error: string}|{frameCount: number, memoryUsage: number, durationSecs: number, stepTime: number}}
+ * @returns {{error: string}|{frameCount: number, memoryUsage: number, durationSecs: number, commandCount: number, stepTime: number, error: string}}
  */
 function validator(data) {
-    const MEMORY_LIMIT = 681;
-    const arraysEqual = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
-
     if(!data) {
         return {
             error: 'Error - file is corrupt or has no data'
         };
     }
+
+    const MEMORY_LIMIT = 681;
+    const arraysEqual = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
+
+    let error;
 
     let magic = String.fromCharCode(...new Uint8Array(data.slice(0,4)));
 
@@ -46,30 +48,23 @@ function validator(data) {
     }
 
     if (chCount !== 48) {
-        return {
-            error: `Expected 48 channels, got ${chCount}`
-        };
+        error = `Expected 48 channels, got ${chCount}`
     }
 
     if (compressionType !== 0) {
-        return {
-            error: 'Expected file format to be V2 Uncompressed'
-        }
+        error = 'Expected file format to be V2 Uncompressed';
     }
 
     let durationSecs = (frameCount * stepTime / 1000);
-    let durationFormatted = new Date(durationSecs * 1000).toISOString().substr(11, 12);
     if (durationSecs > 5 * 60) {
-        return {
-            error: `Expected total duration to be less than 5 minutes, got ${durationFormatted}`
-        }
+        error = `Expected total duration to be less than 5 minutes, got ${new Date(durationSecs * 1000).toISOString().substr(11, 12)}`
     }
 
     let prevLight = [];
     let prevRamp = [];
     let prevClosure1 = [];
     let prevClosure2 = [];
-    let count = 0;
+    let commandCount = 0;
     let pos = start;
 
     const LIGHT_BUFFER_LEN = 30;
@@ -89,39 +84,40 @@ function validator(data) {
 
         if(!arraysEqual(light_state, prevLight)) {
             prevLight = light_state
-            count++
+            commandCount++
         }
 
         if(!arraysEqual(ramp_state, prevRamp)) {
             prevRamp = ramp_state
-            count++
+            commandCount++
         }
 
         if(!arraysEqual(closure_state.slice(0, 10), prevClosure1)) {
             prevClosure1 = closure_state.slice(0, 10)
-            count++
+            commandCount++
         }
 
         if(!arraysEqual(closure_state.slice(10), prevClosure2)) {
             prevClosure2 = closure_state.slice(10);
-            count++
+            commandCount++
         }
 
         pos += GAP;
     }
 
-    const memoryUsage = count / MEMORY_LIMIT;
+    const memoryUsage = commandCount / MEMORY_LIMIT;
 
     if(memoryUsage > 1) {
-        return {
-            error: `Sequence uses ${count} commands. The maximum allowed is ${MEMORY_LIMIT}`
-        }
+        const memoryUsageFormatted = parseFloat((memoryUsage * 100).toFixed(2))
+        error = `Used ${memoryUsageFormatted}% of available memory! Sequence uses ${commandCount} commands, but the maximum allowed is ${MEMORY_LIMIT}!`
     }
 
     return {
         frameCount,
         stepTime,
         durationSecs,
-        memoryUsage
+        memoryUsage,
+        commandCount,
+        error,
     }
 }
