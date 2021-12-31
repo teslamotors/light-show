@@ -121,18 +121,11 @@ Used 16.45% of the available memory
 ```
 
 ### Node.js:
-For usage, run:
-```
-node validator.js examples/lightshow_example_1/lightshow.fseq
-```
+Use the [@xsor/tlsv](https://www.npmjs.com/package/@xsor/tlsv) npm package.
 
-Expected output looks like:
-```
-> node validator.js examples/lightshow_example_1/lightshow.fseq
-Found 2247 frames, step time of 20 ms for a total duration of 00:00:44.940
-Used 16.45% of the available memory
-```
+For details, see the [source code](https://github.com/xsorifc28/tlsv)
 
+Visit [https://validator.t2k.dev](https://validator.t2k.dev) for an online validator
 
 ## Boolean Light Channels
 Most lights available on the vehicle can only turn on or off instantly, which corresponds to 0% or 100% brightness of an 'Effect' in xLights.
