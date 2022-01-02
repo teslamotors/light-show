@@ -17,7 +17,7 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 - The LightShow folder must contain 2 files:
   - "lightshow.fseq"
   - "lightshow.mp3" or "lightshow.wav" (wav is recommended)
-- Must be formatted as exFAT, FAT 32 (for Windows), MS-DOS FAT (for Mac), ext3, or ext4. NTFS is currently not supported.
+- Must be formatted as exFAT, FAT32 (for Windows), MS-DOS FAT (for Mac), ext3, or ext4. NTFS is currently not supported.
 - Must **not** contain a base-level TeslaCam folder.
 - Must **not** contain any map update or firmware update files.
 ### Running the custom light show on a vehicle
@@ -263,7 +263,7 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 ### <a name="light_channel_mapping_details"></a>Light channel mapping details
 #### Side Markers and Aux Park
 - Side markers are only installed in North America vehicles
-- Aux park are not installed in Model 3 Standard Range +
+- Aux park are not installed in Model 3 Standard Range Plus
 - On Model 3/Y, all aux park and side markers operate together. They will activate during ```(Left side marker || Left aux park || Right side marker || Right aux park)``` requests from xLights.
 - On Model S, aux park and side markers operate together, but they have independent left/right control. They will activate during the following requests from xLights:
    - Left side: ```(Left side marker || Left aux park)```
@@ -284,7 +284,7 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
         <img src="/images/channel_4_6_example.png?raw=true" width="850"/>
 
 #### Front Fog
-- Front fog lights are installed in all vehicles except Model 3 Standard Range +.
+- Front fog lights are installed in all vehicles except Model 3 Standard Range Plus.
 - Vehicles without front fog lights will not use any other light in place of front fog lights.
 
 #### Rear Fog
@@ -292,4 +292,4 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 - Vehicles without rear fog lights will not use any other light in place of rear fog lights.
 
 #### Tail lights and License Plate Lights
-- On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
+- On any Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
