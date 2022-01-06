@@ -256,7 +256,7 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 
         <img src="/images/ord_channel_not_ok.png?raw=true" width="900" />
 
-    - This example will cause the Aux Park lights to flash on Model 3/Y:
+    - This example will cause the Aux Park lights to flash on Model 3/Y (note the blank time between each box compared to the other example):
 
         <img src="/images/ord_channel_ok.png?raw=true" width="900" />
 
