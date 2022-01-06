@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<xrgb>
+  <models>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Rear Door Handle" Controller="Model S" ModelChain="&gt;Right Front Window" WorldPosX="-213.2558" WorldPosY="183.8885" WorldPosZ="184.0006" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:40">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Custom" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm3="1" LayoutGroup="Default" PixelSize="15" CustomColor="#000000" StringType="Single Color White" name="Right Tail" parm2="15" parm1="10" Depth="1" CustomModel=",,,,,,,,,;,,,,,,,,,1;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,1,,,,,,,,;,,,,,,,,,;,,,,,,,,,1;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,," CustomBkgLightness="0" CustomBkgImage="" Controller="Model S" ModelChain="&gt;Left Tail" WorldPosX="-446.4688" WorldPosY="160.5505" WorldPosZ="134.6245" ScaleX="6.0401" ScaleY="3.8831" ScaleZ="6.0401" RotateX="3.18986011" RotateY="-63.83337784" RotateZ="-0.48979568" Locked="1" versionNumber="5" StartChannel="!Model S:27">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Custom" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm3="1" LayoutGroup="Default" PixelSize="15" StringType="Single Color White" parm2="2" parm1="3" Depth="1" CustomModel=",1,;1,,1" CustomBkgLightness="0" CustomBkgImage="" name="Brake Lights" Controller="Model S" ModelChain="&gt;Right Rear Turn" WorldPosX="-275.0425" WorldPosY="268.3756" WorldPosZ="-75.7947" ScaleX="150.0000" ScaleY="180.7497" ScaleZ="0.5000" RotateX="60.00000000" RotateY="90.00000000" RotateZ="0.00000000" Locked="1" versionNumber="5" StartChannel="!Model S:25">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Charge Port" Controller="Model S" ModelChain="&gt;Right Rear Window" WorldPosX="-404.4910" WorldPosY="166.5411" WorldPosZ="-177.7444" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:46">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Rear Door Handle" Controller="Model S" ModelChain="&gt;Left Front Door Handle" WorldPosX="-213.2558" WorldPosY="183.8885" WorldPosZ="-183.1020" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:43">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" StringType="Single Color White" parm2="2" name="License Plate" PixelSize="15" Controller="Model S" ModelChain="&gt;Rear Fog Lights" WorldPosX="-469.9217" WorldPosY="158.2614" WorldPosZ="-27.8054" X2="-1.474822" Y2="0.813797" Z2="55.740555" Locked="1" versionNumber="5" StartChannel="!Model S:30">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" StringType="Single Color White" parm2="2" name="Rear Fog Lights" PixelSize="15" Controller="Model S" ModelChain="&gt;Reverse Lights" WorldPosX="-455.0493" WorldPosY="167.4651" WorldPosZ="-98.5213" X2="-7.042419" Y2="0.478043" Z2="195.971558" Locked="1" versionNumber="5" StartChannel="!Model S:29">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" name="Reverse Lights" StringType="Single Color White" parm2="2" PixelSize="15" Controller="Model S" ModelChain="&gt;Right Tail" WorldPosX="-455.0493" WorldPosY="172.7186" WorldPosZ="-107.3238" X2="-7.042419" Y2="0.478043" Z2="215.648712" Locked="1" versionNumber="5" StartChannel="!Model S:28">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Custom" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm3="1" LayoutGroup="Default" name="Left Tail" parm2="15" parm1="10" Depth="1" CustomModel=",,,,,,,,,;1,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,1,;,,,,,,,,,;1,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,,;,,,,,,,,," CustomBkgLightness="0" CustomBkgImage="" PixelSize="15" CustomColor="#000000" StringType="Single Color White" Controller="Model S" ModelChain="&gt;Brake Lights" WorldPosX="-439.6642" WorldPosY="160.5505" WorldPosZ="-145.2213" ScaleX="6.0401" ScaleY="3.8831" ScaleZ="6.0401" RotateX="2.31931615" RotateY="59.37937164" RotateZ="-0.48204002" Locked="1" versionNumber="5" StartChannel="!Model S:26">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" name="Left Outer Main Beam" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" Controller="Model S" WorldPosX="429.7761" WorldPosY="130.7631" WorldPosZ="-147.7250" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:1">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Outer Main Beam" Controller="Model S" ModelChain="&gt;Left Outer Main Beam" WorldPosX="429.7761" WorldPosY="130.7631" WorldPosZ="142.1949" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:2">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Inner Main Beam" Controller="Model S" ModelChain="&gt;Right Outer Main Beam" WorldPosX="439.3687" WorldPosY="127.2878" WorldPosZ="-128.9801" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:3">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Inner Main Beam" Controller="Model S" ModelChain="&gt;Left Inner Main Beam" WorldPosX="439.3687" WorldPosY="127.2878" WorldPosZ="125.4707" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:4">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Signature" Controller="Model S" ModelChain="&gt;Right Inner Main Beam" WorldPosX="412.7541" WorldPosY="148.0317" WorldPosZ="-159.6075" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:5">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Signature" Controller="Model S" ModelChain="&gt;Left Signature" WorldPosX="412.7541" WorldPosY="148.0317" WorldPosZ="159.3586" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:6">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Channel 4" Controller="Model S" ModelChain="&gt;Right Signature" WorldPosX="422.0039" WorldPosY="144.8613" WorldPosZ="-148.2675" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:7">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Channel 4" Controller="Model S" ModelChain="&gt;Left Channel 4" WorldPosX="422.0039" WorldPosY="144.8613" WorldPosZ="145.8786" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:8">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Channel 5" Controller="Model S" ModelChain="&gt;Right Channel 4" WorldPosX="432.0859" WorldPosY="138.5538" WorldPosZ="-131.5254" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:9">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Channel 5" Controller="Model S" ModelChain="&gt;Left Channel 5" WorldPosX="432.0859" WorldPosY="138.5538" WorldPosZ="133.5965" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:10">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Front Turn" Controller="Model S" ModelChain="&gt;Right Channel 6" WorldPosX="412.4765" WorldPosY="136.2632" WorldPosZ="-168.8582" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:13">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Channel 6" Controller="Model S" ModelChain="&gt;Right Channel 5" WorldPosX="446.1860" WorldPosY="136.1340" WorldPosZ="-114.1230" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:11">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Channel 6" Controller="Model S" ModelChain="&gt;Left Channel 6" WorldPosX="446.1860" WorldPosY="136.1340" WorldPosZ="116.6820" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:12">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Front Turn" Controller="Model S" ModelChain="&gt;Left Front Turn" WorldPosX="412.4765" WorldPosY="136.2632" WorldPosZ="166.5891" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:14">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Side Repeater" Controller="Model S" ModelChain="&gt;Right Side Marker" WorldPosX="234.7204" WorldPosY="147.7412" WorldPosZ="-197.5376" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:21">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Front Fog" Controller="Model S" ModelChain="&gt;Right Front Turn" WorldPosX="428.4550" WorldPosY="80.3043" WorldPosZ="-167.7433" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:15">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Front Fog" Controller="Model S" ModelChain="&gt;Left Front Fog" WorldPosX="428.4550" WorldPosY="80.3043" WorldPosZ="166.3783" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:16">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Side Marker" Controller="Model S" ModelChain="&gt;Left Side Marker" WorldPosX="458.4517" WorldPosY="75.2767" WorldPosZ="135.8208" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:20">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Side Repeater" Controller="Model S" ModelChain="&gt;Left Side Repeater" WorldPosX="234.7204" WorldPosY="147.7412" WorldPosZ="-197.5376" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:22">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Aux Park" Controller="Model S" ModelChain="&gt;Right Front Fog" WorldPosX="446.6463" WorldPosY="80.3043" WorldPosZ="-153.1040" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:17">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Aux Park" Controller="Model S" ModelChain="&gt;Left Aux Park" WorldPosX="446.6463" WorldPosY="80.3043" WorldPosZ="152.8278" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:18">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Rear Turn" Controller="Model S" ModelChain="&gt;Right Side Repeater" WorldPosX="-445.7089" WorldPosY="166.7941" WorldPosZ="-159.0402" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:23">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Side Marker" Controller="Model S" ModelChain="&gt;Right Aux Park" WorldPosX="458.4517" WorldPosY="75.2767" WorldPosZ="-136.6436" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:19">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Rear Turn" Controller="Model S" ModelChain="&gt;Left Rear Turn" WorldPosX="-445.7089" WorldPosY="166.7941" WorldPosZ="146.0910" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:24">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Mirror" Controller="Model S" ModelChain="&gt;Right Front Door" WorldPosX="111.5359" WorldPosY="214.2421" WorldPosZ="-191.0557" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:35">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Front Door" Controller="Model S" ModelChain="&gt;Left Front Door" WorldPosX="56.5959" WorldPosY="130.5915" WorldPosZ="193.1448" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:34">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Front Door" Controller="Model S" ModelChain="&gt;Right Falcon Door" WorldPosX="56.5959" WorldPosY="130.5915" WorldPosZ="-191.0557" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:33">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Falcon Door" Controller="Model S" ModelChain="&gt;Left Falcon Door" WorldPosX="-124.8472" WorldPosY="144.0555" WorldPosZ="193.7541" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:32">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Falcon Door" Controller="Model S" ModelChain="&gt;License Plate" WorldPosX="-124.8472" WorldPosY="144.0555" WorldPosZ="-194.0938" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:31">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Rear Window" Controller="Model S" ModelChain="&gt;Left Front Window" WorldPosX="-143.5363" WorldPosY="227.8010" WorldPosZ="-154.7227" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:38">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Front Window" Controller="Model S" ModelChain="&gt;Right Mirror" WorldPosX="20.0871" WorldPosY="227.8010" WorldPosZ="-159.3158" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:37">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Mirror" Controller="Model S" ModelChain="&gt;Left Mirror" WorldPosX="111.5359" WorldPosY="214.2421" WorldPosZ="196.5740" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:36">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Left Front Door Handle" Controller="Model S" ModelChain="&gt;Liftgate" WorldPosX="-9.0223" WorldPosY="167.1135" WorldPosZ="-184.8703" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:42">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Rear Window" Controller="Model S" ModelChain="&gt;Right Front Door Handle" WorldPosX="-143.5363" WorldPosY="227.8010" WorldPosZ="153.8488" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:45">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Liftgate" Controller="Model S" ModelChain="&gt;Right Rear Door Handle" WorldPosX="-275.2434" WorldPosY="268.5485" WorldPosZ="0.5661" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:41">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Front Window" Controller="Model S" ModelChain="&gt;Left Rear Window" WorldPosX="20.0871" WorldPosY="227.8010" WorldPosZ="159.8806" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:39">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+    <model DisplayAs="Single Line" StartSide="B" Dir="L" Antialias="1" Transparency="0" parm1="1" parm3="1" LayoutGroup="Default" parm2="1" PixelSize="15" CustomColor="#ff0000" StringType="Single Color White" name="Right Front Door Handle" Controller="Model S" ModelChain="&gt;Left Rear Door Handle" WorldPosX="-9.0223" WorldPosY="167.1135" WorldPosZ="184.1639" X2="31.424210" Y2="0.000000" Z2="0.000000" Locked="1" versionNumber="5" StartChannel="!Model S:44">
+      <ControllerConnection Port="1" Protocol="ws2811"/>
+    </model>
+  </models>
+  <view_objects>
+    <view_object DisplayAs="Gridlines" LayoutGroup="Default" name="Gridlines" GridLineSpacing="50" GridWidth="2000.0" GridHeight="1000.0" Active="0" WorldPosX="0.0000" WorldPosY="0.0000" WorldPosZ="0.0000" ScaleX="1.0000" ScaleY="1.0000" ScaleZ="1.0000" RotateX="-90.00000000" RotateY="-0.00000000" RotateZ="0.00000000" versionNumber="5"/>
+    <view_object DisplayAs="Mesh" LayoutGroup="Default" name="Tesla Model S" ObjFile="D:\Cloud Drives\OneDrive\xLights\Tesla\light-show\xlights\tesla_xlights_show_folder\Model_S\ModelS.obj" Active="1" WorldPosX="0.0000" WorldPosY="0.0000" WorldPosZ="0.0000" ScaleX="1.0000" ScaleY="1.0000" ScaleZ="1.0000" RotateX="0.00000000" RotateY="0.00000000" RotateZ="0.00000000" Locked="1" versionNumber="5"/>
+  </view_objects>
+  <effects version="0007"/>
+  <views>
+    <view name="My Master View" models="GRP Aux Park,GRP Channel 4,GRP Channel 5,GRP Channel 6,GRP Door Handles (Front),GRP Door Handles (Rear),GRP Doors (Front),GRP Falcon Doors,GRP Fogs (Front),GRP Main Beams (Inner),GRP Main Beams (Outer),GRP Markers (Side),GRP Markers - Lower,GRP Mirrors,GRP Repeaters (Side),GRP Signatures,GRP Turns (Front),GRP Turns (Rear),GRP Windows,GRP Windows (Front),GRP Windows (Rear),Brake Lights,Charge Port,License Plate,Liftgate,Rear Fog Lights,Reverse Lights"/>
+  </views>
+  <palettes/>
+  <modelGroups>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Side Marker,Right Side Marker" name="GRP Markers - Lower"/>
+    <modelGroup selected="0" name="GRP Aux Park" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Aux Park,Right Aux Park"/>
+    <modelGroup selected="0" name="GRP Channel 4" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Channel 4,Right Channel 4"/>
+    <modelGroup selected="0" name="GRP Channel 5" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Channel 5,Right Channel 5"/>
+    <modelGroup selected="0" name="GRP Channel 6" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Channel 6,Right Channel 6"/>
+    <modelGroup selected="0" name="GRP Falcon Doors" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Falcon Door,Right Falcon Door"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Door,Right Front Door" name="GRP Doors (Front)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Door Handle,Right Front Door Handle" name="GRP Door Handles (Front)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Fog,Right Front Fog" name="GRP Fogs (Front)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Turn,Right Front Turn" name="GRP Turns (Front)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Window,Right Front Window" name="GRP Windows (Front)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Inner Main Beam,Right Inner Main Beam" name="GRP Main Beams (Inner)"/>
+    <modelGroup selected="0" name="GRP Mirrors" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Mirror,Right Mirror"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Outer Main Beam,Right Outer Main Beam" name="GRP Main Beams (Outer)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Rear Door Handle,Right Rear Door Handle" name="GRP Door Handles (Rear)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Rear Turn,Right Rear Turn" name="GRP Turns (Rear)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Rear Window,Right Rear Window" name="GRP Windows (Rear)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Side Marker,Right Side Marker" name="GRP Markers (Side)"/>
+    <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Side Repeater,Right Side Repeater" name="GRP Repeaters (Side)"/>
+    <modelGroup selected="0" name="GRP Signatures" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Signature,Right Signature"/>
+    <modelGroup selected="0" name="GRP Windows" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Window,Left Rear Window,Right Front Window,Right Rear Window"/>
+  </modelGroups>
+  <layoutGroups/>
+  <perspectives current="Default Perspective">
+    <perspective name="Default Perspective" settings="layout2|name=ModelPreview;caption=Model Preview;state=6293502;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=250;besth=250;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=HousePreview;caption=House Preview;state=6293500;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=250;besth=250;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=EffectAssist;caption=Effect Assist;state=2099198;dir=4;layer=1;row=0;pos=2;prop=100000;bestw=250;besth=250;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DisplayElements;caption=Display Elements;state=6293503;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=600;besth=400;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=600;floath=400|name=Perspectives;caption=Perspectives;state=2099198;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=207;besth=150;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Effect;caption=Effect Settings;state=2099196;dir=4;layer=0;row=1;pos=0;prop=100000;bestw=475;besth=831;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SelectEffect;caption=Select Effects;state=2099198;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=463;besth=316;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=EffectDropper;caption=Effects;state=2099198;dir=1;layer=0;row=0;pos=0;prop=100000;bestw=1044;besth=696;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ValueCurveDropper;caption=Value Curves;state=2099198;dir=1;layer=0;row=0;pos=0;prop=100000;bestw=40;besth=40;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ColourDropper;caption=Colours;state=2099198;dir=1;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Jukebox;caption=Jukebox;state=2099198;dir=1;layer=0;row=0;pos=0;prop=100000;bestw=100;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Color;caption=Color;state=2099196;dir=1;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=375;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayerTiming;caption=Layer Blending;state=2099196;dir=1;layer=0;row=0;pos=1;prop=100000;bestw=308;besth=285;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayerSettings;caption=Layer Settings;state=2099196;dir=1;layer=0;row=0;pos=2;prop=100000;bestw=317;besth=458;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SequenceVideo;caption=Sequence Video;state=2099199;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=320;besth=169;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=348;floaty=201;floatw=520;floath=360|name=Main Sequencer;caption=Main Sequencer;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=122;besth=63;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,1,0)=1102|dock_size(4,0,1)=352|dock_size(1,0,0)=485|dock_size(5,0,0)=124|" version="2.0"/>
+  </perspectives>
+  <settings>
+    <scaleImage value="0"/>
+    <previewWidth value="1280"/>
+    <previewHeight value="720"/>
+    <defaultSeqView value=""/>
+  </settings>
+  <colors>
+    <DisabledEffect Red="200" Green="200" Blue="0"/>
+    <EffectDefault Red="192" Green="192" Blue="192"/>
+    <EffectSelected Red="204" Green="102" Blue="255"/>
+    <EffectSelectedDisabled Red="200" Green="200" Blue="64"/>
+    <EffectSelectedFixed Red="255" Green="128" Blue="0"/>
+    <EffectSelectedLocked Red="200" Green="0" Blue="64"/>
+    <GridDashes Red="255" Green="255" Blue="0"/>
+    <Gridlines Red="40" Green="40" Blue="40"/>
+    <LabelOutline Red="103" Green="103" Blue="103"/>
+    <Labels Red="255" Green="255" Blue="204"/>
+    <LayoutDashes Red="255" Green="255" Blue="0"/>
+    <LockedEffect Red="200" Green="0" Blue="0"/>
+    <ModelDefault Red="211" Green="211" Blue="211"/>
+    <ModelOverlap Red="255" Green="0" Blue="0"/>
+    <ModelSelected Red="255" Green="255" Blue="0"/>
+    <Phonemes Red="255" Green="181" Blue="218"/>
+    <Phrases Red="153" Green="255" Blue="153"/>
+    <ReferenceEffect Red="255" Green="0" Blue="255"/>
+    <ReferenceEffectDisabled Red="255" Green="255" Blue="127"/>
+    <ReferenceEffectLocked Red="255" Green="0" Blue="127"/>
+    <RowHeaderSelected Red="130" Green="178" Blue="207"/>
+    <Timing1 Red="0" Green="255" Blue="255"/>
+    <Timing2 Red="255" Green="0" Blue="0"/>
+    <Timing3 Red="0" Green="255" Blue="0"/>
+    <Timing4 Red="0" Green="0" Blue="255"/>
+    <Timing5 Red="255" Green="255" Blue="0"/>
+    <TimingDefault Red="255" Green="255" Blue="255"/>
+    <Waveform Red="130" Green="178" Blue="207"/>
+    <WaveformSelected Red="0" Green="0" Blue="200"/>
+    <WaveformSelectedEffect Red="255" Green="128" Blue="0"/>
+    <Words Red="255" Green="218" Blue="145"/>
+  </colors>
+  <Viewpoints>
+    <DefaultCamera2D name="DEFAULT2D" posX="0.000000" posY="0.000000" posZ="0.000000" angleX="20.000000" angleY="5.000000" distance="-2000.000000" zoom="1.000000" panx="0.000000" pany="0.000000" panz="0.000000" zoom_corrx="0.000000" zoom_corry="0.000000" is_3d="0"/>
+    <DefaultCamera3D name="DEFAULT3D" posX="0.000000" posY="0.000000" posZ="0.000000" angleX="6.000000" angleY="335.000000" distance="-2000.000000" zoom="0.743553" panx="39.683903" pany="-18.666227" panz="-53.914040" zoom_corrx="0.000000" zoom_corry="0.000000" is_3d="1"/>
+  </Viewpoints>
+</xrgb>
