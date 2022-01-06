@@ -4,11 +4,15 @@ import struct
 import sys
 import argparse
 import datetime
+from pathlib import Path
 
 MEMORY_LIMIT = 681
 
+
 class ValidationError(Exception):
-    pass
+    def __init__(self, message):
+        super(ValidationError, self).__init__(f"VALIDATION ERROR: {message}")
+
 
 @dataclasses.dataclass
 class ValidationResults:
@@ -16,8 +20,13 @@ class ValidationResults:
     step_time: int
     duration_s: int
     memory_usage: float
+    command_count: int
 
 def validate(file):
+    file_name = Path(file.name).name
+    if file_name != "lightshow.fseq":
+        print(f"WARNING: FSEQ file should be renamed to 'lightshow.fseq' before playing in a Tesla.")
+
     """Calculates the memory usage of the provided .fseq file"""
     magic = file.read(4)
     start, minor, major = struct.unpack("<HBB", file.read(4))
@@ -66,7 +75,13 @@ def validate(file):
             prev_closure_2 = closure_state[10:]
             count += 1
 
-    return ValidationResults(frame_count, step_time, duration_s, count / MEMORY_LIMIT)
+    memory_usage = count / MEMORY_LIMIT
+
+    if memory_usage > 1:
+        raise ValidationError(f"Sequence uses {count} commands. The maximum allowed is {MEMORY_LIMIT}.")
+
+    return ValidationResults(frame_count, step_time, duration_s, memory_usage, count)
+
 
 if __name__ == "__main__":
     # Expected usage: python3 validator.py lightshow.fseq
@@ -81,7 +96,5 @@ if __name__ == "__main__":
             print(e)
             sys.exit(1)
 
-    print(f"Found {results.frame_count} frames, step time of {results.step_time} ms for a total duration of {datetime.timedelta(seconds=results.duration_s)}.")
+    print(f"Found {results.frame_count} frames and {results.command_count} commands, step time of {results.step_time} ms for a total duration of {datetime.timedelta(seconds=results.duration_s)}.")
     print(f"Used {results.memory_usage*100:.2f}% of the available memory")
-    if results.memory_usage > 1:
-        sys.exit(1)
