@@ -143,7 +143,7 @@
   </models>
   <view_objects>
     <view_object DisplayAs="Gridlines" LayoutGroup="Default" name="Gridlines" GridLineSpacing="50" GridWidth="2000.0" GridHeight="1000.0" Active="0" WorldPosX="0.0000" WorldPosY="0.0000" WorldPosZ="0.0000" ScaleX="1.0000" ScaleY="1.0000" ScaleZ="1.0000" RotateX="-90.00000000" RotateY="-0.00000000" RotateZ="0.00000000" versionNumber="5"/>
-    <view_object DisplayAs="Mesh" LayoutGroup="Default" name="Tesla Model S" ObjFile="D:\Cloud Drives\OneDrive\xLights\Tesla\light-show\xlights\tesla_xlights_show_folder\Model_S\ModelS.obj" Active="1" WorldPosX="0.0000" WorldPosY="0.0000" WorldPosZ="0.0000" ScaleX="1.0000" ScaleY="1.0000" ScaleZ="1.0000" RotateX="0.00000000" RotateY="0.00000000" RotateZ="0.00000000" Locked="1" versionNumber="5"/>
+    <view_object DisplayAs="Mesh" LayoutGroup="Default" name="Tesla Model S" ObjFile="Model_S\ModelS.obj" Active="1" WorldPosX="0.0000" WorldPosY="0.0000" WorldPosZ="0.0000" ScaleX="1.0000" ScaleY="1.0000" ScaleZ="1.0000" RotateX="0.00000000" RotateY="0.00000000" RotateZ="0.00000000" Locked="1" versionNumber="5"/>
   </view_objects>
   <effects version="0007"/>
   <views>
