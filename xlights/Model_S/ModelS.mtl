@@ -1,0 +1,68 @@
+newmtl Arachnid21_Wheel_LFSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Arachnid_Wheel_AO.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 4.31
+newmtl Arachnid21_Wheel_LFSG1
+illum 4
+Kd 0.06 0.06 0.06
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl BodySG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Exterior_AO.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl BodySG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Exterior_AO.png
+Ni 1.00
+newmtl BodySG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Exterior_AO_Dark.png
+Ni 1.00
+newmtl BodySG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl BodySG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Lights_Red_AO.png
+Ni 1.00
+newmtl LightsSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Lights_AO.png
+Ni 1.00
+Ks 0.92 0.92 0.92
+Ns 5.82
+newmtl Windows_TopSG
+illum 4
+Kd 0.10 0.10 0.10
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
