@@ -74,11 +74,8 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 ## Opening the example sequence
 An example sequence is provided that can be run on the vehicle and/or opened in xLights. These instructions cover how to open it in xLights.
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
-2. Download and unzip the example light show, [lightshow_example_1.zip](examples/lightshow_example_1.zip?raw=true).
-3. In File > Open Sequence, navigate to the unzipped folder and select the ```lightshow.xsq``` example file, then select Open.
-4. In the Sequencer tab, double click on "Tesla Model S" then double click on "All Lights and Closures" to view all channels.
-
-     <img src="/images/xlights_demo_track.png?raw=true" width="900" />
+2. In File > Open Sequence, navigate ```Sequences\Sample``` then select the example ```lightshow.xsq```, and select Open.
+3. In the sequencer, all of the tesla items & groups will automaticially apper on the model list.
 
 ## Creating a new sequence
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
