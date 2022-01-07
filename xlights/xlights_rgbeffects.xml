@@ -172,6 +172,7 @@
     <modelGroup selected="0" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Side Repeater,Right Side Repeater" name="GRP Repeaters (Side)"/>
     <modelGroup selected="0" name="GRP Signatures" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Signature,Right Signature"/>
     <modelGroup selected="0" name="GRP Windows" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Front Window,Left Rear Window,Right Front Window,Right Rear Window"/>
+    <modelGroup selected="0" name="GRP Tesla Model S" layout="minimalGrid" GridSize="400" LayoutGroup="Default" models="Left Outer Main Beam,Right Outer Main Beam,Left Inner Main Beam,Right Inner Main Beam,Left Signature,Right Signature,Left Channel 4,Right Channel 4,Left Channel 5,Right Channel 5,Left Channel 6,Right Channel 6,Left Front Turn,Right Front Turn,Left Front Fog,Right Front Fog,Left Aux Park,Right Aux Park,Left Side Marker,Right Side Marker,Left Side Repeater,Right Side Repeater,Left Rear Turn,Right Rear Turn,Brake Lights,Left Tail,Right Tail,Reverse Lights,Rear Fog Lights,License Plate,Left Falcon Door,Right Falcon Door,Left Front Door,Right Front Door,Left Mirror,Right Mirror,Left Front Window,Left Rear Window,Right Front Window,Right Rear Door Handle,Liftgate,Left Front Door Handle,Left Rear Door Handle,Right Front Door Handle,Right Rear Window,Charge Port"/>
   </modelGroups>
   <layoutGroups/>
   <perspectives current="Default Perspective">
@@ -179,9 +180,9 @@
   </perspectives>
   <settings>
     <scaleImage value="0"/>
+    <defaultSeqView value=""/>
     <previewWidth value="1280"/>
     <previewHeight value="720"/>
-    <defaultSeqView value=""/>
   </settings>
   <colors>
     <DisabledEffect Red="200" Green="200" Blue="0"/>
