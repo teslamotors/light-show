@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Networks computer="WASABI" GlobalFPPProxy="">
+  <suppressframes frames="20"/>
+  <Controller Id="1" Name="Model S" Description="" Type="Null" Vendor="" Model="" Variant="" AutoSize="1" FullxLightsControl="TRUE" DefaultBrightnessUnderFullControl="100" ActiveState="Active" AutoLayout="1" AutoUpload="0" SuppressDuplicates="0">
+    <network NetworkType="NULL" MaxChannels="1"/>
+  </Controller>
+</Networks>
