@@ -44,8 +44,8 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
         - Closures
         
 ## Audio file requirements
-You can use both the mp3 and wav format (.wav is recommended)
-Make sure the file is encoded with a sample rate of 44.1Mhz; less common 48Mhz files won't properly sync to the light show.
+You can use both the mp3 and wav format (.wav is recommended).
+Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz files won't properly sync to the light show.
 
 ## <a name="getting_started"></a>Getting started with the Tesla xLights project directory
 1. Visit [xLights Downloads](https://xlights.org/releases/) to download and install the xLights application.
