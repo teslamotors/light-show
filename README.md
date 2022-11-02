@@ -123,6 +123,13 @@ Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
 Used 16.45% of the available memory
 ```
 
+Errors in the sequence will be highlighted & prepended with a Validation Error message:
+```
+> python3 validator.py invalidlightshow.fseq
+WARNING: FSEQ file should be renamed to 'lightshow.fseq' before playing in a Tesla
+VALIDATION ERROR: Expected file format to be V2 Uncompressed
+```
+
 ## Boolean Light Channels
 Most lights available on the vehicle can only turn on or off instantly, which corresponds to 0% or 100% brightness of an 'Effect' in xLights.
 - For off, use blank space in the xLights timeline
