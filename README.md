@@ -49,14 +49,14 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
 ## <a name="getting_started"></a>Getting started with the Tesla xLights project directory
 1. Visit [xLights Downloads](https://xlights.org/releases/) to download and install the xLights application.
-2. Download and unzip [tesla_xlights_show_folder.zip](xlights/tesla_xlights_show_folder.zip?raw=true), which is the Tesla xLights bare project directory.
+2. Download the [tesla-xlights](https://github.com/teslamotors/light-show/archive/refs/heads/master.zip) repository and extract it.
    - It is recommended to keep the project directory structure as-is and leave all files in their default locations.
 3. Open the xLights application.
 4. **IMPORTANT:** In File > Preferences > Sequences > FSEQ Version, select "V2 Uncompressed".
 
     <img src="/images/v2_uncompressed.png?raw=true" width="500" />
 
-5. In File > Select Show Folder, navigate to and select the unzipped project directory, then select Open.
+5. In File > Select Show Folder, navigate to the location you unziped [tesla-xlights](https://github.com/teslamotors/light-show/archive/refs/heads/master.zip) and select the xlights folder.
 6. Select the Layout tab to view the Tesla 3D vehicle model. You should see the Tesla Model S model listed under the Model/Group table.
 
     <img src="/images/layout_tab.png?raw=true" width="425" />
@@ -66,6 +66,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
     <img src="/images/3d_preview.png?raw=true" width="750" />
 
 8. Users may want to adjust the size of the lights on the model, for better visibility. In Layout > Models > Tesla Model S, open the Appearance dropdown and change Pixel Size.
+   - This will need to be done on every model.  This is a cosmetic change only and has no impact on what is displayed on the vehicle.
 
     <img src="/images/pixel_size.png?raw=true" width="550" />
 
@@ -73,16 +74,13 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
     <img src="/images/xlights_layout.png?raw=true" width="950" />
 
-10. Note that the official Tesla Model S .xmodel file includes the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
+10. Note that the official Tesla Model S xLights layout includes the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
 
 ## Opening the example sequence
 An example sequence is provided that can be run on the vehicle and/or opened in xLights. These instructions cover how to open it in xLights.
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
-2. Download and unzip the example light show, [lightshow_example_1.zip](examples/lightshow_example_1.zip?raw=true).
-3. In File > Open Sequence, navigate to the unzipped folder and select the ```lightshow.xsq``` example file, then select Open.
-4. In the Sequencer tab, double click on "Tesla Model S" then double click on "All Lights and Closures" to view all channels.
-
-     <img src="/images/xlights_demo_track.png?raw=true" width="900" />
+2. In File > Open Sequence, navigate ```Sequences\Sample``` then select the example ```lightshow.xsq```, and select Open.
+3. In the sequencer, all of the tesla items & groups will automaticially apper on the model list.
 
 ## Creating a new sequence
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
