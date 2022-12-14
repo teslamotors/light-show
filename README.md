@@ -344,7 +344,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 - On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
 
 ## Converting old (pre-2022 holiday update) show files
-All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuraiton.
+All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
 - Create a new folder for the converted project and copy the old audio file over.
 - Close XLights
 - Download and unzip [tesla_xlights_convert.zip](xlights/tesla_xlights_convert.zip?raw=true)
