@@ -5,7 +5,7 @@ import sys
 import argparse
 import datetime
 
-MEMORY_LIMIT = 681
+MEMORY_LIMIT = 3500
 
 class ValidationError(Exception):
     pass

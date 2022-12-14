@@ -6,6 +6,11 @@ Welcome to the Tesla Light Show xLights guide! You can create and run your own l
 
 ## Running a custom show on a vehicle
 A custom show can be run on a supported vehicle by loading it via a USB flash drive. Create and share your shows with others! A single show can be shared and run on any supported vehicle; they are not model-specific. The sequence data is stored in a .fseq file and the music comes from your choice of .mp3 or .wav.
+### Download a Show
+Multiple light show repositories can be found online. A screenshot from [TeslaLightShare.io](https://teslalightshare.io/) is below.
+
+<a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/>
+
 ### Supported Vehicles
 - Model S (2021+)
 - Model 3
@@ -21,14 +26,17 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 - Must **not** contain a base-level TeslaCam folder.
 - Must **not** contain any map update or firmware update files.
 ### Running the custom light show on a vehicle
-- Insert the flash drive into one of the front USB or USB-C ports, or glovebox USB port, then wait a few seconds.
-- In Toybox, select Light Show and tap Start The Show. If the files on the USB flash drive meet the requirements, then the custom show will be used instead of the built-in show.
+- Insert the flash drive into one of the front USB, USB-C ports, or glovebox USB port, then wait a few seconds.
+- In Toybox, select Light Show and tap Schedule Show.
 
     <img src="/images/start_show_button.png?raw=true" width="315" />
 
-- As the custom light show loads, the status at the bottom of the popup cycles through "Loading lightshow.fseq" and "Loading light show...". When the status becomes "Light show ready!", you can exit the vehicle and the custom show will start.
+- If the files on the USB flash drive meet the requirements, then the custom show will be available to select from the drop-down menu.
 
-    <img src="/images/light_show_ready.png?raw=true" widtht="476" />
+    <img src="/images/light_show_ready.png?raw=true" widtht="442" />
+
+### Light Show Community
+[reddit.com/r/TeslaLightShow/](https://www.reddit.com/r/TeslaLightShow/)
 
 ### Debug
 - If the popup title is "Light Show" instead of "Custom Light Show", then the requirements are not being met for the USB flash drive formatting and/or required folder and files.
@@ -36,13 +44,16 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 
 ## <a name="show_limits"></a>General Limitations of Custom Shows
 - The maximum duration for a custom Tesla xLights show is 5 minutes.
-- The maximum number of commands during a custom show is 681:
+- The maximum number of commands during a custom show is 3500:
     - Any transition of a light or closure contributes towards this command limit. Eg, turning a light on and off is 2 transitions.
     - Within each of the following 3 categories, transitions that happen at the same timestamp will only contribute 1 command towards the overall limit. Therefore, within these categories, it is recommended to align transitions at the same timestamp as much as possible.
         - Boolean light
         - Ramping light
         - Closures
-        
+   - In this example, two lights will be turn on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
+
+     <img src="/images/aligning_example.png?raw=true" width="500" />
+
 ## Audio file requirements
 You can use both the mp3 and wav format (.wav is recommended).
 Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz files won't properly sync to the light show.
@@ -61,26 +72,25 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
     <img src="/images/layout_tab.png?raw=true" width="425" />
 
-7. Make sure that the 3D preview checkbox is selected. Mac users may need to resize the window in order to see this checkbox.
+7. Make sure that the 3D preview checkbox is selected.
 
     <img src="/images/3d_preview.png?raw=true" width="750" />
 
-8. Users may want to adjust the size of the lights on the model, for better visibility. In Layout > Models > Tesla Model S, open the Appearance dropdown and change Pixel Size.
-
-    <img src="/images/pixel_size.png?raw=true" width="550" />
-
-9. Select the Sequencer tab. For the best editing experience, only the timeline, House Preview, and Color windows are needed.
+8. Select the Sequencer tab. For the best editing experience, only the timeline and House Preview are needed.
 
     <img src="/images/xlights_layout.png?raw=true" width="950" />
 
-10. Note that the official Tesla Model S .xmodel file includes the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
+9. Note that the official Tesla Model S .xmodel file includes the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
 
 ## Opening the example sequence
 An example sequence is provided that can be run on the vehicle and/or opened in xLights. These instructions cover how to open it in xLights.
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
-2. Download and unzip the example light show, [lightshow_example_1.zip](examples/lightshow_example_1.zip?raw=true).
+2. Download and unzip the example light show:
+[lightshow_example_1_elevator_music.zip](examples/lightshow_example_1_elevator_music.zip?raw=true)
+or
+[lightshow_example_2_Max_Carlisle_Auld_Lang_Syne_In_the_City.zip](examples/lightshow_example_2_Max_Carlisle_Auld_Lang_Syne_In_the_City.zip?raw=true).
 3. In File > Open Sequence, navigate to the unzipped folder and select the ```lightshow.xsq``` example file, then select Open.
-4. In the Sequencer tab, double click on "Tesla Model S" then double click on "All Lights and Closures" to view all channels.
+4. In the Sequencer tab, double click groups in the timeline to reveal individual left / right control.
 
      <img src="/images/xlights_demo_track.png?raw=true" width="900" />
 
@@ -88,37 +98,47 @@ An example sequence is provided that can be run on the vehicle and/or opened in 
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
 2. Select File > New Sequence
 3. Select Musical Sequence
-4. Navigate to your chosen .wav or mp3 file, select it, then select Open
+4. Navigate to your chosen .wav or mp3 file, select it, then select Open. Note that .wav files may be hidden unless file type is set to xLights Audio Files.
+
+    <img src="/images/wav_hidden.png?raw=true" width="450" />
+
 5. In the Wizard tab select Custom
 6. Change the Frame interval to 20ms then select OK.
-    
-     <img src="/images/sequence_setting_20ms.png?raw=true" width="500" /> 
+
+     <img src="/images/sequence_setting_20ms.png?raw=true" width="500" />
 
     Note: any value between 15ms and 100ms is supported by the vehicle, but 20ms is recommended for nearly all use cases. The [maximum show size limits](#show_limits) do not depend on the frame interval.
 
 7. Select Quick Start and wait for the sequencer to load
-8. In the Sequencer tab, double click on "Tesla Model S" then double click on "All Lights and Closures" to view all channels
+8. In the top left of the timeline, select "Group View" in the view selector. You can also choose "Old View" for the pre-update layout.
 
-    <img src="/images/all_lights_closures.png?raw=true" width="450" /> 
+    <img src="/images/groups_select_view.png?raw=true" width="450" />
 
-9. To add effects, click and drag an "On" effect onto a given channel in the effects window. In the Color window (shown by default, but can be found in View > Window > Colors), adjust Brightness if needed according to [ramping light channels](#ramping_lights) or [closures channel mappings](#closures).
+9. If using the recommended "Group View", you can double click the light groups to reveal and hide individual left/right control. Placing light effects in the group object will activate both the left and right light
 
-    <img src="/images/on_effect.png?raw=true" width="160" /> <br>
-    <img src="/images/brightness_adjust.png?raw=true" width="475" /> 
+    <img src="/images/groups_left_right.png?raw=true" width="450" />
 
-10. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
+10. If using the old view, double click on "GRP Tesla Model S" to view all channels
+
+    <img src="/images/all_lights_closures_old.png?raw=true" width="450" />
+
+11. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
 ## Light Show Sequence Validator Script
 A Python validator script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
 For usage, run:
 ```
+python validator.py lightshow.fseq
+```
+macOS users should use this command instead:
+```
 python3 validator.py lightshow.fseq
 ```
 
 Expected output looks like:
 ```
-> python3 validator.py lightshow.fseq
+> python validator.py lightshow.fseq
 Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
 Used 16.45% of the available memory
 ```
@@ -126,7 +146,7 @@ Used 16.45% of the available memory
 ## Boolean Light Channels
 Most lights available on the vehicle can only turn on or off instantly, which corresponds to 0% or 100% brightness of an 'Effect' in xLights.
 - For off, use blank space in the xLights timeline
-- For on, use an 'On' effect with 100% brightness (this is the default for On effects)
+- For on, place *Turn On; Instant* (hotkey: 'F' on your keyboard)
 
 The minimum on-time for boolean light channels to produce light is 15ms, although human eyes will have a hard time seeing anything this short! Minimum on-time or off-time of 100ms generally makes the show more pleasing to look at.
 
@@ -144,18 +164,22 @@ Some channels can have a slow ramp in the intensity during turn-on or turn-off, 
 | Channels 4-6 | Ramping | Ramping | Ramping |
 | Front Turn | Boolean | Boolean | Ramping |
 
-To command a light to turn on or off and follow a ramp profile, add an 'On' effect and adjust the effect's Brightness parameter in the Color window:
+To command a light to turn on or off and follow a ramp profile, place the effect with the corresponding keyboard shortcut:
 
 | Ramping Function | xLights Effect Brightness |
 | ------ | ----------- |
-| Turn off; Instant | 0% |
-| Turn off; 500 ms | 10% |
-| Turn off; 1000 ms | 20% |
-| Turn off; 2000 ms | 30% |
-| Turn on; 2000 ms | 70% |
-| Turn on; 1000 ms | 80% |
-| Turn on; 500 ms | 90% |
-| Turn on; Instant | 100% |
+| Turn off; Instant | *empty timeline* |
+| Turn off; 500 ms | W |
+| Turn off; 1000 ms | S |
+| Turn off; 2000 ms | X |
+| Turn on; 500 ms | E |
+| Turn on; 1000 ms | D |
+| Turn on; 2000 ms | C |
+| Turn on; Instant | F |
+
+The keyboard layout is designed to be easy to use. Note that the effect types are grouped into vertical keyboard rows and sorted by duration.
+
+<img src="/images/keyboard_shortcuts.png?raw=true" width="800" />
 
 ### Other notes
 - Ramping can only prolong the time it takes to fully turn a light on or turn off. It is not possible to command a steady-state brightness setpoint between 0% and 100% intensity.
@@ -165,15 +189,15 @@ To command a light to turn on or off and follow a ramp profile, add an 'On' effe
 - Ramping Channels 4-6 have some unique aspects compared to other lights in order to use them effectively - see notes in [Ramping Channels 4-6](#ramping_channels_4_6).
 
 ### Ramping light examples
-- Left inner main beam, 70% brightness, effect duration 1s: causes the light to ramp from 0% to 50% intensity over 1s, then instantly turn off (because an empty xLights timeline corresponds to 0% brightness).
+- Left inner main beam, *Turn on; 2000 ms*, effect duration 1s: causes the light to ramp from 0% to 50% intensity over 1s, then instantly turn off (because of the empty timeline).
 
     <img src="/images/ramp_example_1.png?raw=true" height="180" />
 
-- Left inner main beam, 70% brightness, effect duration 4s: causes the light to ramp from 0% to 100% intensity over 2s, then stay at 100% intensity for 2s, then instantly turn off after 4s.
+- Left inner main beam, *Turn on; 2000 ms*, effect duration 4s: causes the light to ramp from 0% to 100% intensity over 2s, then stay at 100% intensity for 2s, then instantly turn off after 4s.
 
     <img src="/images/ramp_example_2.png?raw=true" height="180" />
 
-- Left inner main beam, 70% for 2.06s, 30% for 1.9s, 70% for 2.06s: causes light to ramp to 100% intensity, then down close to, but not reaching, 0% intensity, then back up to 100% intensity, then instantly turn off.
+- Left inner main beam, *Turn on; 2000 ms* for 2.06s, *Turn off; 2000 ms* for 1.9s, *Turn on; 2000 ms* for 2.06s: causes light to ramp to 100% intensity, then down close to, but not reaching, 0% intensity, then back up to 100% intensity, then instantly turn off.
 
     <img src="/images/ramp_example_3.png?raw=true" height="180" />
 
@@ -198,8 +222,11 @@ The following tables and images help show which channels are controlled on each 
 ### Model 3/Y with LED projector lamps
 <img src="/images/3_headlights_projector.png?raw=true" width="900"/><br>
 
-### Model S
-<img src="/images/s_headlights.png?raw=true" width="900"/><br>
+### Model S with LED reflector lamps
+<img src="/images/s_headlights_reflector.png?raw=true" width="900"/><br>
+
+### Model S with LED projector lamps
+<img src="/images/s_headlights_projector.png?raw=true" width="900"/><br>
 
 ### Model X
 <img src="/images/x_headlights.png?raw=true" width="900"/><br>
@@ -215,16 +242,16 @@ In custom xLights shows, the following closures can be commanded:
 | Door Handles | Yes | - | - | - | 20 |
 | Front Doors | - | Yes | - | - | 6 |
 | Falcon Doors | - | Yes | - | Yes | 6 |
-  
-To command a closure to move in a particular manner, add an 'On' effect and adjust the effect's Brightness parameter in the Color window:
+
+To command a closure to move in a particular manner, place an effect with the following keyboard shortcuts:
 
 | Closure Movement | xLights Effect Brightness |
 | --- | --- |
-| Idle | 0% |
-| Open | 25% |
-| Dance | 50% |
-| Close | 75% |
-| Stop | 100% |
+| Idle | *empty timeline* |
+| Open | Q |
+| Dance | A |
+| Close | Z |
+| Stop | F |
 
 ### Definitions for closure movements:
 - **Idle:** The closure will stop, unless the closure is in the middle of an Open or Close in which case that movement will finish first.
@@ -240,7 +267,7 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 
 ### Closures Command Limitations
 - All closures have actuation limits listed in the table above. Only Open, Close, and Dance count towards the actuation limits. The limits are counted separately for each individual closure.
-- With the exception of windows, closures will not honor Dance requests unless the respective closure is already in the open position. The show creator must account for this by adding a delay between Open and Dance requests.
+- With the exception of windows, closures will not honor Dance requests unless the respective closure is already in the open position. The show creator must account for this by adding a delay between Open and Dance requests. Refer to [Closure Movement Durations](#closure_movement_durations) for more information.
 - The charge port door will automatically close if 2 minutes have elapsed since opening.
 - Closure commands spaced very close together (eg, 20ms) will not cause much visible movement, and will use up the command limits quickly. Leave reasonable time between commands to see the best effects.
 
@@ -250,6 +277,19 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
     <img src="/images/open_and_dance.png?raw=true" width="850" />
 
 - For Dance, the xLights effect must persist until the dancing is desired to stop.
+
+### <a name="closure_movement_durations"></a>Closure Movement Durations
+| Closure Movement | Approximate Duration (s) |
+| --- | --- |
+| Open Liftgate | 14 |
+| Close Liftgate | 4 |
+| Open Front Doors | 22 |
+| Close Front Doors | 3 |
+| Open Falcon Doors | 20 |
+| Close Falcon Doors | 8 |
+| Windows | 4 |
+| Mirrors, Door Handles, Charge Port | 2 |
+
 
 ## Tips for platform-agnostic light shows
 ### Light channel mapping recommendations
@@ -276,16 +316,21 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 #### <a name="ramping_channels_4_6"></a>Ramping Channels 4-6
 - For Model S/X:
     - Individual on/off control is supported for each channel
-    - Only a single ramping duration is allowed between all 3 channels. 
+    - Only a single ramping duration is allowed between all 3 channels.
     - The ramping duration for all 3 is defined only by the effect placed in xLights for Channel 4.
 - For Model 3/Y:
     - All 3 of these channels are combined into a single output on the vehicle, see [light channel locations](#light_locations).
     - The on/off state is OR'd together between all 3 channels: ```(Channel 4 || Channel 5 || Channel 6)```.
     - The ramping duration is defined by the effect placed in xLights for Channel 4.
 - Because channel 4 acts as the leader for setting ramping duration on all platforms, a ramping effect must sometimes be included on Channel 4 even when Channel 4 is not turned on.
-    - In this example, each channel blinks 3x and ramps down after its last blink. Notice how an On effect with 10% brightness is added always on Channel 4, even when it's Channel 5 or Channel 6 that were turned on.
+    - In this example, each channel blinks 3x and ramps down after its last blink. Notice how an *Turn Off, 500ms* effect is added always on Channel 4, even when it's Channel 5 or Channel 6 that were turned on.
 
         <img src="/images/channel_4_6_example.png?raw=true" width="850"/>
+
+    - In this example, Channel 4 & 6 ramp up and ramp down again. Notice how Channel 6 has the *Turn On; Instantly* effect while Channel 4 defines the effect to be *Turn On; 1000ms* for both channels.
+
+        <img src="/images/channel_4_6_example_2.png?raw=true" width="850"/>
+
 
 #### Front Fog
 - Front fog lights are installed in all vehicles except Model 3 Standard Range +.
@@ -297,3 +342,35 @@ To command a closure to move in a particular manner, add an 'On' effect and adju
 
 #### Tail lights and License Plate Lights
 - On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
+
+## Converting old (pre-2022 holiday update) show files
+All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuraiton.
+- Create a new folder for the converted project and copy the old audio file over.
+- Close XLights
+- Download and unzip [tesla_xlights_convert.zip](xlights/tesla_xlights_convert.zip?raw=true)
+- Open XLights. In the "Controllers" tab under Show Directory, select "Change Temporarily"
+
+    <img src="/images/convert_change_temporarily.png?raw=true" width="500" />
+
+- Select the old_tesla_xlights_show_folder in the extracted tesla_xlights_convert folder.
+- Open your old .xsq file.
+- Select Tools -> Package Sequence and save the .zip file in a new folder.
+
+    <img src="/images/convert_package_sequence.png?raw=true" width="500" />
+
+- Reopen XLights and create a new sequence with the song from the new folder.
+- Select Import -> Import Effects and choose the .zip file you created earlier.
+
+    <img src="/images/convert_import.png?raw=true" width="500" />
+
+- In "Map Channels" Window, select "Load Mapping" and choose "mapping.xmap" located in the "convert to new format" folder.
+
+    <img src="/images/convert_load_mapping.png?raw=true" width="800" />
+
+- Press "Ok", the old sequence will import. It's recommended to use the "Old View" for working with converted files.
+
+    <img src="/images/convert_old_view.png?raw=true" width="1000" />
+
+- Press "Render All" to see the imported effects in the preview.
+
+    <img src="/images/convert_render_all.png?raw=true" width="300" />
