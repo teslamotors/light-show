@@ -50,7 +50,7 @@ Multiple light show repositories can be found online. A screenshot from [TeslaLi
         - Boolean light
         - Ramping light
         - Closures
-   - In this example, two lights will be turn on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
+   - In this example, two lights will be turned on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
 
      <img src="/images/aligning_example.png?raw=true" width="500" />
 
@@ -354,7 +354,7 @@ All old .fseq files are fully compatible with the new light show update. You onl
 
 - Select the old_tesla_xlights_show_folder in the extracted tesla_xlights_convert folder.
 - Open your old .xsq file.
-- Select Tools -> Package Sequence and save the .zip file in a new folder.
+- Select Tools -> Package Sequence and save the .zip file in the new folder.
 
     <img src="/images/convert_package_sequence.png?raw=true" width="500" />
 
