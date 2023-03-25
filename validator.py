@@ -26,7 +26,7 @@ def validate(file):
     file.seek(20)
     compression_type, = struct.unpack("<B", file.read(1))
 
-    if (magic != b'PSEQ') or (start < 24) or (frame_count < 1) or (step_time < 15) or (minor != 0) or (major != 2):
+    if (magic != b'PSEQ') or (start < 24) or (frame_count < 1) or (step_time < 15) or ((minor != 2) and (minor != 0)) or (major != 2):
         raise ValidationError("Unknown file format, expected FSEQ v2.0")
     if channel_count != 48:
         raise ValidationError(f"Expected 48 channels, got {channel_count}")
