@@ -68,10 +68,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
     <img src="/images/v2_uncompressed.png?raw=true" width="500" />
 
 5. In File > Select Show Folder, navigate to and select the unzipped project directory, then select Open.
-6. Select the Layout tab to view the Tesla 3D vehicle model. You should see the Tesla Model S model listed under the Model/Group table.
-
-    <img src="/images/layout_tab.png?raw=true" width="425" />
-
+6. Select the Layout tab to view the Tesla 3D vehicle model.
 7. Make sure that the 3D preview checkbox is selected.
 
     <img src="/images/3d_preview.png?raw=true" width="750" />
