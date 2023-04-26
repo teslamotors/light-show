@@ -163,16 +163,16 @@ Some channels can have a slow ramp in the intensity during turn-on or turn-off, 
 
 To command a light to turn on or off and follow a ramp profile, place the effect with the corresponding keyboard shortcut:
 
-| Ramping Function | xLights Effect Brightness |
-| ------ | ----------- |
-| Turn off; Instant | *empty timeline* |
-| Turn off; 500 ms | W |
-| Turn off; 1000 ms | S |
-| Turn off; 2000 ms | X |
-| Turn on; 500 ms | E |
-| Turn on; 1000 ms | D |
-| Turn on; 2000 ms | C |
-| Turn on; Instant | F |
+| Ramping Function | xLights Effect Brightness | Hotkey
+| ------ | ----------- | ----------- |
+| Turn off; Instant | 0% | *empty timeline* |
+| Turn off; 500 ms | 10% | W |
+| Turn off; 1000 ms | 20% | S |
+| Turn off; 2000 ms | 30% | X |
+| Turn on; 500 ms | 70% | E |
+| Turn on; 1000 ms | 80% | D |
+| Turn on; 2000 ms | 90% | C |
+| Turn on; Instant | 100% | F |
 
 The keyboard layout is designed to be easy to use. Note that the effect types are grouped into vertical keyboard rows and sorted by duration.
 
