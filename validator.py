@@ -37,8 +37,8 @@ def validate(file):
         raise ValidationError(f"Expected total duration to be less than 5 minutes, got {datetime.timedelta(seconds=duration_s)}")
     if ((minor != 0) and (minor != 2)) or (major != 2):
         print("")
-        print(f"WARNING: FSEQ version is {major}.{minor}. Only version 2.0 and 2.2 have been validated.")
-        print(f"If the car fails to read this file, download and older version of XLights at https://github.com/smeighan/xLights/releases")
+        print(f"WARNING: FSEQ version is {major}.{minor}. Only versions 2.0 and 2.2 have been validated.")
+        print(f"If the car fails to read this file, download an older version of XLights at https://github.com/smeighan/xLights/releases")
         print(f"Please report this message at https://github.com/teslamotors/light-show/issues")
         print("")
 
