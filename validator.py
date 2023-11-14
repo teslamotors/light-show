@@ -26,7 +26,7 @@ def validate(file):
     file.seek(20)
     compression_type, = struct.unpack("<B", file.read(1))
 
-    if (magic != b'PSEQ') or (start < 24) or (frame_count < 1) or (step_time < 15) or (minor != 0) or (major != 2):
+    if (magic != b'PSEQ') or (start < 24) or (frame_count < 1) or (step_time < 15):
         raise ValidationError("Unknown file format, expected FSEQ v2.0")
     if channel_count != 48:
         raise ValidationError(f"Expected 48 channels, got {channel_count}")
@@ -35,6 +35,12 @@ def validate(file):
     duration_s = (frame_count * step_time / 1000)
     if duration_s > 5*60:
         raise ValidationError(f"Expected total duration to be less than 5 minutes, got {datetime.timedelta(seconds=duration_s)}")
+    if ((minor != 0) and (minor != 2)) or (major != 2):
+        print("")
+        print(f"WARNING: FSEQ version is {major}.{minor}. Only version 2.0 and 2.2 have been validated.")
+        print(f"If the car fails to read this file, download and older version of XLights at https://github.com/smeighan/xLights/releases")
+        print(f"Please report this message at https://github.com/teslamotors/light-show/issues")
+        print("")
 
     file.seek(start)
 
@@ -65,7 +71,7 @@ def validate(file):
         if closure_state[10:] != prev_closure_2:
             prev_closure_2 = closure_state[10:]
             count += 1
-
+   
     return ValidationResults(frame_count, step_time, duration_s, count / MEMORY_LIMIT)
 
 if __name__ == "__main__":

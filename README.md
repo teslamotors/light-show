@@ -50,7 +50,7 @@ Multiple light show repositories can be found online. A screenshot from [TeslaLi
         - Boolean light
         - Ramping light
         - Closures
-   - In this example, two lights will be turn on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
+   - In this example, two lights will be turned on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
 
      <img src="/images/aligning_example.png?raw=true" width="500" />
 
@@ -68,10 +68,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
     <img src="/images/v2_uncompressed.png?raw=true" width="500" />
 
 5. In File > Select Show Folder, navigate to and select the unzipped project directory, then select Open.
-6. Select the Layout tab to view the Tesla 3D vehicle model. You should see the Tesla Model S model listed under the Model/Group table.
-
-    <img src="/images/layout_tab.png?raw=true" width="425" />
-
+6. Select the Layout tab to view the Tesla 3D vehicle model.
 7. Make sure that the 3D preview checkbox is selected.
 
     <img src="/images/3d_preview.png?raw=true" width="750" />
@@ -166,16 +163,16 @@ Some channels can have a slow ramp in the intensity during turn-on or turn-off, 
 
 To command a light to turn on or off and follow a ramp profile, place the effect with the corresponding keyboard shortcut:
 
-| Ramping Function | xLights Effect Brightness |
-| ------ | ----------- |
-| Turn off; Instant | *empty timeline* |
-| Turn off; 500 ms | W |
-| Turn off; 1000 ms | S |
-| Turn off; 2000 ms | X |
-| Turn on; 500 ms | E |
-| Turn on; 1000 ms | D |
-| Turn on; 2000 ms | C |
-| Turn on; Instant | F |
+| Ramping Function | xLights Effect Brightness | Hotkey
+| ------ | ----------- | ----------- |
+| Turn off; Instant | 0% | *empty timeline* |
+| Turn off; 500 ms | 10% | W |
+| Turn off; 1000 ms | 20% | S |
+| Turn off; 2000 ms | 30% | X |
+| Turn on; 500 ms | 70% | E |
+| Turn on; 1000 ms | 80% | D |
+| Turn on; 2000 ms | 90% | C |
+| Turn on; Instant | 100% | F |
 
 The keyboard layout is designed to be easy to use. Note that the effect types are grouped into vertical keyboard rows and sorted by duration.
 
@@ -344,7 +341,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 - On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
 
 ## Converting old (pre-2022 holiday update) show files
-All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuraiton.
+All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
 - Create a new folder for the converted project and copy the old audio file over.
 - Close XLights
 - Download and unzip [tesla_xlights_convert.zip](xlights/tesla_xlights_convert.zip?raw=true)
@@ -354,7 +351,7 @@ All old .fseq files are fully compatible with the new light show update. You onl
 
 - Select the old_tesla_xlights_show_folder in the extracted tesla_xlights_convert folder.
 - Open your old .xsq file.
-- Select Tools -> Package Sequence and save the .zip file in a new folder.
+- Select Tools -> Package Sequence and save the .zip file in the new folder.
 
     <img src="/images/convert_package_sequence.png?raw=true" width="500" />
 
