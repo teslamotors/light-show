@@ -19,9 +19,12 @@ Multiple light show repositories can be found online. A screenshot from [TeslaLi
 - Running Software v11.0 (2021.44.25) or newer
 ### USB flash drive requirements
 - Must contain a base-level folder called "LightShow" (without quotation marks and case sensitive).
-- The LightShow folder must contain 2 files:
-  - "lightshow.fseq"
-  - "lightshow.mp3" or "lightshow.wav" (wav is recommended)
+- The LightShow folder must contain at least 2 files:
+  - a show .fseq file
+  - a show .mp3 or .wav file (wav is recommended)
+- The fseq filename must match the mp3/wav filenames
+    - E.g., show1.fseq/show1.wav can exist with show2.fseq/show2.mp3
+- Multiple shows can be stored on 1 USB drive (2023.44.25+ Vehicle Software)
 - Must be formatted as exFAT, FAT 32 (for Windows), MS-DOS FAT (for Mac), ext3, or ext4. NTFS is currently not supported.
 - Must **not** contain a base-level TeslaCam folder.
 - Must **not** contain any map update or firmware update files.
@@ -31,9 +34,9 @@ Multiple light show repositories can be found online. A screenshot from [TeslaLi
 
     <img src="/images/start_show_button.png?raw=true" width="315" />
 
-- If the files on the USB flash drive meet the requirements, then the custom show will be available to select from the drop-down menu.
+- If the files on the USB flash drive meet the requirements, then the custom shows will be available to select from the drop-down menu.
 
-    <img src="/images/light_show_ready.png?raw=true" widtht="442" />
+    <img src="/images/multi_select_usb.png?raw=true" widtht="442" />
 
 ### Light Show Community
 [reddit.com/r/TeslaLightShow/](https://www.reddit.com/r/TeslaLightShow/)
