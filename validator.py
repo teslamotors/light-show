@@ -28,8 +28,8 @@ def validate(file):
 
     if (magic != b'PSEQ') or (start < 24) or (frame_count < 1) or (step_time < 15):
         raise ValidationError("Unknown file format, expected FSEQ v2.0")
-    if channel_count != 48:
-        raise ValidationError(f"Expected 48 channels, got {channel_count}")
+    if channel_count != 48 and channel_count != 200:
+        raise ValidationError(f"Expected 48 or 200 channels, got {channel_count}")
     if compression_type != 0:
         raise ValidationError("Expected file format to be V2 Uncompressed")
     duration_s = (frame_count * step_time / 1000)
@@ -53,7 +53,7 @@ def validate(file):
     for frame_i in range(frame_count):
         lights = file.read(30)
         closures = file.read(16)
-        file.seek(2, 1)
+        file.seek(channel_count - 30 - 16, 1)
 
         light_state = [(b > 127) for b in lights]
         ramp_state = [min((((255 - b) if (b > 127) else (b)) // 13 + 1) // 2, 3) for b in lights[:14]]
