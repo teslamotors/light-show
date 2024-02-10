@@ -166,7 +166,7 @@ Some channels can have a slow ramp in the intensity during turn-on or turn-off, 
 | Front Turn | Boolean | Boolean | Ramping | Ramping |
 | Front Side Markers | Boolean | Boolean | Boolean | Ramping |
 | Front Light Bar | - | - | - | Full Brightness Control |
-| Offroad Light Bar | - | - | - | Full Brightness Control? |
+| Offroad Light Bar | - | - | - | ? |
 | Rear Light Bar | - | - | - | Full Brightness Control |
 | Brake Light | Boolean | Boolean | Boolean | Full Brightness Control |
 | Rear Turn | Boolean | Boolean | Boolean | Full Brightness Control |
@@ -323,6 +323,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 | Lower Suspension | 3* |
 
 
+*not measured yet
 ## Tips for platform-agnostic light shows
 ### Light channel mapping recommendations
 - Not all vehicles have all types of lights installed. When turning on/off lights in sync with key parts of the music's beat, try to use lights that are installed on all vehicle variants.
@@ -405,7 +406,7 @@ To make old light shows look as good as possible on the new Cybertruck's lights,
 
 ## Converting old show files
 ### Pre-2023 update
-All old .xsq and .fseq files are fully compatible with this light show update. You can edit older .xsq files instantly without converting them. Keep in mind that the is no backwards compatibility, once you save them, you won't be able to open them with the old project folder anymore.
+All old .xsq and .fseq files are fully compatible with this light show update. You can edit older .xsq files instantly without converting them. Keep in mind that there is no backwards compatibility, once you save them, you won't be able to open them with the old project folder anymore.
 ### Pre-2022 update
 All old .fseq files are fully compatible with this light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
 - Create a new folder for the converted project and copy the old audio file over.
