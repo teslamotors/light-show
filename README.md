@@ -9,13 +9,14 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 ### Download a Show
 Multiple light show repositories can be found online. A screenshot from [TeslaLightShare.io](https://teslalightshare.io/) is below.
 
-<a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/>
+<a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
 
 ### Supported Vehicles
 - Model S (2021+)
 - Model 3
 - Model X (2021+)
 - Model Y
+- Cybertruck
 - Running Software v11.0 (2021.44.25) or newer
 ### USB flash drive requirements
 - Must contain a base-level folder called "LightShow" (without quotation marks and case sensitive).
@@ -80,7 +81,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
     <img src="/images/xlights_layout.png?raw=true" width="950" />
 
-9. Note that the official Tesla Model S .xmodel file includes the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
+9. Note that the previewed Tesla Model S combined with the Cybertruck include the superset of lights and closures that are needed for all supported vehicles, and should be used to generate shows for all vehicle types. See [light channel locations](#light-channel-locations) for information about where the lights are on each vehicle.
 
 ## Opening the example sequence
 An example sequence is provided that can be run on the vehicle and/or opened in xLights. These instructions cover how to open it in xLights.
@@ -154,16 +155,24 @@ In this example, the Left Front Fog turns on and off 3x:
 
 <img src="/images/on_effect_example.png?raw=true" width="550" />
 
-## <a name="ramping_lights"></a>Ramping Light Channels
-Some channels can have a slow ramp in the intensity during turn-on or turn-off, to create graceful visual effects:
-| Channel | Model S | Model X | Model 3/Y |
-| --- | --- | --- | --- |
-| Outer Main Beam  | Ramping | Ramping | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights |
-| Inner Main Beam | Ramping | Ramping | Ramping |
-| Signature | Boolean | Boolean | Ramping |
-| Channels 4-6 | Ramping | Ramping | Ramping |
-| Front Turn | Boolean | Boolean | Ramping |
+## <a name="ramping_lights"></a>Light Channels with Brightness Control
+Some channels can have a slow ramp in the intensity during turn-on or turn-off, to create graceful visual effects. Some even allow for full brightness control:
+| Channel | Model S | Model X | Model 3/Y | Cybertruck |
+| --- | --- | --- | --- | --- |
+| Outer Main Beam  | Ramping | Ramping | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights | Ramping |
+| Inner Main Beam | Ramping | Ramping | Ramping | Ramping |
+| Signature | Boolean | Boolean | Ramping | - |
+| Channels 4-6 | Ramping | Ramping | Ramping | - |
+| Front Turn | Boolean | Boolean | Ramping | Ramping |
+| Front Side Markers | Boolean | Boolean | Boolean | Ramping |
+| Front Light Bar | - | - | - | Full Brightness Control |
+| Offroad Light Bar | - | - | - | Full Brightness Control? |
+| Rear Light Bar | - | - | - | Full Brightness Control |
+| Brake Light | Boolean | Boolean | Boolean | Full Brightness Control |
+| Rear Turn | Boolean | Boolean | Boolean | Full Brightness Control |
+| Bed Lights | - | - | - | Ramping |
 
+### Ramping light channels
 To command a light to turn on or off and follow a ramp profile, place the effect with the corresponding keyboard shortcut:
 
 | Ramping Function | xLights Effect Brightness | Hotkey
@@ -181,14 +190,14 @@ The keyboard layout is designed to be easy to use. Note that the effect types ar
 
 <img src="/images/keyboard_shortcuts.png?raw=true" width="800" />
 
-### Other notes
+#### Other notes
 - Ramping can only prolong the time it takes to fully turn a light on or turn off. It is not possible to command a steady-state brightness setpoint between 0% and 100% intensity.
 - If an xLights effect is longer than the ramping duration, then the light will stay at 0% or 100% intensity after it finishes ramping.
 - Ramping effects can end early or be reversed before completion, and the light will immediately start following the new profile that is commanded.
 - To guarantee that a light reaches the 0% or 100% setpoint, the xLights effect must have a duration at least 50ms greater than the ramp duration. Conversely, to guarantee that a light does not fully reach the 0% or 100% setpoint, the xLights effect must have a duration at least 100ms less than the ramp duration.
 - Ramping Channels 4-6 have some unique aspects compared to other lights in order to use them effectively - see notes in [Ramping Channels 4-6](#ramping_channels_4_6).
 
-### Ramping light examples
+#### Ramping light examples
 - Left inner main beam, *Turn on; 2000 ms*, effect duration 1s: causes the light to ramp from 0% to 50% intensity over 1s, then instantly turn off (because of the empty timeline).
 
     <img src="/images/ramp_example_1.png?raw=true" height="180" />
@@ -200,6 +209,19 @@ The keyboard layout is designed to be easy to use. Note that the effect types ar
 - Left inner main beam, *Turn on; 2000 ms* for 2.06s, *Turn off; 2000 ms* for 1.9s, *Turn on; 2000 ms* for 2.06s: causes light to ramp to 100% intensity, then down close to, but not reaching, 0% intensity, then back up to 100% intensity, then instantly turn off.
 
     <img src="/images/ramp_example_3.png?raw=true" height="180" />
+
+### Full Brightness Control Channels
+Some lights on Cybertruck have full brightness control. Their brightness always corresponds to the value set in xLights.
+- Place an 'On' Effect using the shortcut _F_. Lights can be set to a steady-state brightness setpoint between 0% and 100% intensity using the 'Brightness' slider in the 'Colors' window.
+
+    <img src="/images/brightness_slider.png?raw=true" width="500" />
+    
+- Custom ramp durations can be achieved using 'Value Curves'. The menu is opened when clicking the green arrow next to the brightness slider. To create a basic ramp, select 'Ramp' from the drop-down list and set the start/end duration to 0%/100%. The light will reach 0%/100% brightness at the end of the 'On' effect.
+
+  <img src="/images/value_curve.png?raw=true" width="900" />
+  
+- Value Curves can also be used to create more advanced custom brightness effects. Keep in mind that the maximum brightness is 100.
+- On cars without full brightness control, any brightness setting above 50% will set the light to ON and otherwise it will be OFF.
 
 ## <a name="light_locations"></a>Light Channel Locations
 The following tables and images help show which channels are controlled on each car. Some vehicles have lights that do not exist, or have multiple lights driven by the same control output - see notes in [Light channel mapping details](#light_channel_mapping_details) for this information.
@@ -231,17 +253,24 @@ The following tables and images help show which channels are controlled on each 
 ### Model X
 <img src="/images/x_headlights.png?raw=true" width="900"/><br>
 
+### Cybertruck
+
+<img src="/images/cybertruck_front.png?raw=true" width="900"/><br>
+<img src="/images/cybertruck_rear.png?raw=true" width="900"/><br>
+<img src="/images/lightbar_rear.png?raw=true" width="900"/><br>
+
 ## <a name="closures"></a>Closures channels
 In custom xLights shows, the following closures can be commanded:
-| Channel | Model S | Model X | Model 3/Y | Supports Dance? | Command Limit Per Show |
-| --- | --- | --- | --- | --- | --- |
-| Liftgate | Yes | Yes | Only vehicles with power liftgate | Yes | 6 |
-| Mirrors | Yes | Yes | Yes | - | 20 |
-| Charge Port | Yes | Yes | Yes | Yes | 3 |
-| Windows | Yes | Yes | Yes | Yes | 6 |
-| Door Handles | Yes | - | - | - | 20 |
-| Front Doors | - | Yes | - | - | 6 |
-| Falcon Doors | - | Yes | - | Yes | 6 |
+| Channel | Model S | Model X | Model 3/Y | Cybertruck | Supports Dance? | Command Limit Per Show |
+| --- | --- | --- | --- | --- | --- | --- |
+| Liftgate | Yes | Yes | Only vehicles with power liftgate | Yes (Frunk) | Yes | 6 |
+| Mirrors | Yes | Yes | Yes | Yes | - | 20 |
+| Charge Port | Yes | Yes | Yes | Yes | Yes | 3 |
+| Windows | Yes | Yes | Yes | Yes | Yes | 6 |
+| Door Handles | Yes | - | - | - | - | 20 |
+| Front Doors | - | Yes | - | - | - | 6 |
+| Falcon Doors | - | Yes | - | - | Yes | 6 |
+| Suspension | - | - | - | Yes | - | 2 |
 
 To command a closure to move in a particular manner, place an effect with the following keyboard shortcuts:
 
@@ -264,6 +293,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 - For closures that do not support Dance, it's recommended to use Open and Close requests to cause movement during the show.
 - It's recommended to avoid closing windows during the show so that music stays more audible. Music only plays from the cabin speakers during the show.
 - Closures can only dance for a limited time before encountering thermal limits. This depends on multiple factors including ambient temperature, etc. If thermal limits are encountered, the given closure will stop moving until it cools down. Dancing for ~30s or less per show is recommended.
+- Moving Windows during Model X door movement can cause false pinch detections, stopping the light show.
 
 ### Closures Command Limitations
 - All closures have actuation limits listed in the table above. Only Open, Close, and Dance count towards the actuation limits. The limits are counted separately for each individual closure.
@@ -289,6 +319,8 @@ To command a closure to move in a particular manner, place an effect with the fo
 | Close Falcon Doors | 8 |
 | Windows | 4 |
 | Mirrors, Door Handles, Charge Port | 2 |
+| Raise Suspension | 20* |
+| Lower Suspension | 3* |
 
 
 ## Tips for platform-agnostic light shows
@@ -343,27 +375,46 @@ To command a closure to move in a particular manner, place an effect with the fo
 #### Tail lights and License Plate Lights
 - On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
 
-## Converting old (pre-2022 holiday update) show files
-All old .fseq files are fully compatible with the new light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
+#### Cybertruck Light Bar
+- The front and rear light bar have 60 individually controllable LEDs each.
+- It's recommended to use xLights' integreated effects to program the light bar. Good ones for getting started are: Curtain, Marble, Morph and On. Most effects can be customized using the 'Effect Settings' Window. The visualization will display all effects accurately, but keep in mind that the lights are very diffused.
+
+    <img src="/images/xlights_integrated_effects.png?raw=true" width="1000" />
+
+    <img src="/images/effect_settings.png?raw=true" width="500" />
+    
+- The front light bar is grouped intro three segments: Left, Center, Right. Left/Right are the outer angled portions of the front light bar. The segments can be accessed by double clicking on the light bar in the timeline.
+
+    <img src="/images/lightbar_timeline.png?raw=true" width="900" />
+    
+- The rear light bar is grouped into the same three segments. Center consists of the 52 LEDs on the bed door, while Left/Right are 4 LEDs each above the Turn Signals.
+- Even the individual LEDs can be programmed by double clicking on the segments (Left, Center, Right) in the timeline.
+
+#### Cybertruck Offroad Light Bar
+- The offroad light bar is an optional upgrade. Most Cybertrucks won't have them installed.
+- The offroad light bar consists of six LEDs. Two side-facing ditch lights, four forward-facing lights.
+- The LEDs can be controlled individually by double clicking the Offroad Light Bar in the timeline, then double clicking 'Strand 1'
+
+#### Cybertruck Light Remapping
+To make old light shows look as good as possible on the new Cybertruck's lights, the following channels are remapped:
+- Reverse Lights are activated with L/R Tail in XLights for individual L/R control.
+- L/R Rear Side Markers are activated with L/R Side Repeaters in XLights.
+- Powered Frunk is activated by Liftgate in XLights.
+- Frunk Light is activated by Aux Park in XLights.
+- Bed Lights are activated with Reverse Light in XLights.
+
+## Converting old show files
+### Pre-2023 update
+All old .xsq and .fseq files are fully compatible with this light show update. You can edit older .xsq files instantly without converting them. Keep in mind that the is no backwards compatibility, once you save them, you won't be able to open them with the old project folder anymore.
+### Pre-2022 update
+All old .fseq files are fully compatible with this light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
 - Create a new folder for the converted project and copy the old audio file over.
-- Close XLights
-- Download and unzip [tesla_xlights_convert.zip](xlights/tesla_xlights_convert.zip?raw=true)
-- Open XLights. In the "Controllers" tab under Show Directory, select "Change Temporarily"
-
-    <img src="/images/convert_change_temporarily.png?raw=true" width="500" />
-
-- Select the old_tesla_xlights_show_folder in the extracted tesla_xlights_convert folder.
-- Open your old .xsq file.
-- Select Tools -> Package Sequence and save the .zip file in the new folder.
-
-    <img src="/images/convert_package_sequence.png?raw=true" width="500" />
-
-- Reopen XLights and create a new sequence with the song from the new folder.
-- Select Import -> Import Effects and choose the .zip file you created earlier.
+- Create a new sequence with the audio file from the new folder.
+- Select Import -> Import Effects and choose your old .xsq file.
 
     <img src="/images/convert_import.png?raw=true" width="500" />
 
-- In "Map Channels" Window, select "Load Mapping" and choose "mapping.xmap" located in the "convert to new format" folder.
+- In "Map Channels" Window, select "Load Mapping" and choose "2022_mapping.xmap" located in the tesla_xlights_show_folder.
 
     <img src="/images/convert_load_mapping.png?raw=true" width="800" />
 
