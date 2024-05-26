@@ -270,7 +270,6 @@ In custom xLights shows, the following closures can be commanded:
 | Door Handles | Yes | - | - | - | - | 20 |
 | Front Doors | - | Yes | - | - | - | 6 |
 | Falcon Doors | - | Yes | - | - | Yes | 6 |
-| Suspension | - | - | - | Yes | - | 2 |
 
 To command a closure to move in a particular manner, place an effect with the following keyboard shortcuts:
 
@@ -319,11 +318,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 | Close Falcon Doors | 8 |
 | Windows | 4 |
 | Mirrors, Door Handles, Charge Port | 2 |
-| Raise Suspension | 20* |
-| Lower Suspension | 3* |
 
-
-*not measured yet
 ## Tips for platform-agnostic light shows
 ### Light channel mapping recommendations
 - Not all vehicles have all types of lights installed. When turning on/off lights in sync with key parts of the music's beat, try to use lights that are installed on all vehicle variants.
