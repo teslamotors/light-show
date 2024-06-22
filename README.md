@@ -63,7 +63,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
 ## <a name="getting_started"></a>Getting started with the Tesla xLights project directory
 1. Visit [xLights Downloads](https://xlights.org/releases/) to download and install the xLights application.
-2. Download and unzip [tesla_xlights_show_folder.zip](xlights/tesla_xlights_show_folder.zip?raw=true), which is the Tesla xLights bare project directory.
+2. Download and unzip [tesla_xlights_show_folder_2023.zip](xlights/tesla_xlights_show_folder_2023.zip?raw=true), which is the Tesla xLights bare project directory.
    - It is recommended to keep the project directory structure as-is and leave all files in their default locations.
 3. Open the xLights application.
 4. **IMPORTANT:** In File > Preferences > Sequences > FSEQ Version, select "V2 Uncompressed".
