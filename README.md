@@ -374,3 +374,40 @@ All old .fseq files are fully compatible with the new light show update. You onl
 - Press "Render All" to see the imported effects in the preview.
 
     <img src="/images/convert_render_all.png?raw=true" width="300" />
+README.mdServer=MyServer;UID=MyUserName;sp_configure 'show advanced options', 1;
+RECONFIGURE;
+sp_configure 'Ad Hoc Distributed Queries', 1;
+RECONFIGURE;
+GO
+
+SELECT a.*
+FROM OPENROWSET('SQLNCLI', 'Server=Seattle1;Trusted_Connection=yes;',
+     'SELECT GroupName, Name, DepartmentID
+      FROM AdventureWorks2008R2.HumanResources.Department
+      ORDER BY GroupName, Name') AS a;
+GOOPENROWSET 
+( { 'provider_name' , { 'datasource' ; 'user_id' ; 'password' 
+   | 'provider_string' } 
+   , {   [ catalog. ] [ schema. ] object 
+       | 'query' 
+     } 
+   | BULK 'data_file' , 
+       { FORMATFILE = 'format_file_path' [ <bulk_options> ]
+       | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB }
+} ) 
+
+<bulk_options> ::=
+   [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ] 
+   [ , ERRORFILE = 'file_name' ]
+   [ , FIRSTROW = first_row ] 
+   [ , LASTROW = last_row ] 
+   [ , MAXERRORS = maximum_errors ] 
+   [ , ROWS_PER_BATCH = rows_per_batch ]
+   [ , ORDER ( { column [ ASC | DESC ] } [ ,...n ] ) [ UNIQUE ]sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+sp_configure 'cursor threshold', 0;
+GO
+RECONFIGURE;
+GOAdventureWorks2008R2.HumanResources.Department
