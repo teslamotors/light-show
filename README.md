@@ -1,4 +1,6 @@
-# **Tesla Light Show xLights Guide**
+> python validator.py lightshow.fseq
+Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
+Used 16.45% of the available memory# **Tesla Light Show xLights Guide**
 
 Welcome to the Tesla Light Show xLights guide! You can create and run your own light shows on Tesla vehicles.
 
