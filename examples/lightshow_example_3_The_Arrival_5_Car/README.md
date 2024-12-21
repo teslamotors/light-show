@@ -1,6 +1,6 @@
 # **Running a 5-car show with cross-vehicle animations**
 
-The light shows in this folder use "The Arrival" music track that is the Tesla 2023 Holiday Release Light Show.
+The light shows in this folder use the "The Arrival" music track that is the Tesla 2023 Holiday Release Light Show.
 These 5 shows have been customised to show animations that are coordinated across 5 vehicles such that effects combine to make a unique, unified show.
 
 Each vehicle should be configured to run a scheduled show. See details in the main README.md file on the home page.
