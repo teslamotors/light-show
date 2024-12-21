@@ -10,7 +10,7 @@ The vehicles should be arranged per this illustration:
 
 The shows can all be edited using the .xsq files in the show folder. Note that you must be using the latest version of the light show project to open the show seamlessly in xLights.
 
-These shows can be run on any Tesla vehicle that supports the light show feature. The coordinated show will also work with fewer than 5 vehicles (e.g., 3 vehicles using shows 2, 3, and 4).
+The coordinated show will also work with fewer than 5 vehicles (e.g., 3 vehicles using shows 2, 3, and 4).
 
 ### Requirements:
 Running Software 2023.44.25 (2023 Holiday Release) or newer.
