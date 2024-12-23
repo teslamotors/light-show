@@ -1,4 +1,6 @@
-# Requires Python 3.7+
+> python validator.py lightshow.fseq
+Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
+Used 16.45% of the available memoryvalidator.py2247lightshow.fseq0:00:4420python validator.py lightshow.fseqpython3 validator.py lightshow.fseq# Requires Python 3.7+
 import dataclasses
 import struct
 import sys
