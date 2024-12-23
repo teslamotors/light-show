@@ -1,4 +1,4 @@
-# **Tesla Light Show xLights Guide**
+README.md# **Tesla Light Show xLights Guide**
 
 Welcome to the Tesla Light Show xLights guide! You can create and run your own light shows on Tesla vehicles.
 
