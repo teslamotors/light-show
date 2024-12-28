@@ -119,7 +119,7 @@ or
 11. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
 ## Light Show Sequence Validator Script
-A Python [validator.py](validator.py?raw=true) script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
+A Python [validator.py](validator.py) script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
 Windows user can run validator.py by double clicking the file. Drag and drop the .fseq file into the new window.
 
