@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.7'  # Set the Python version
+          python-version: '3.x'  # Latest stable python3 version
 
       - name: Install PyInstaller
         run: pip install pyinstaller
@@ -38,9 +38,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.7'  # Set the Python version
+          python-version: '3.x'  # Latest stable python3 version
 
       - name: Install PyInstaller
         run: pip install pyinstaller
