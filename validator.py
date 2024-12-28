@@ -56,6 +56,7 @@ if __name__ == "__main__":
             results = validate(file)
         except ValidationError as e:
             print(e)
+            input("Press Enter to exit...")
             sys.exit(1)
 
     print(f"Found {results.frame_count} frames, step time of {results.step_time} ms for a total duration of {datetime.timedelta(seconds=results.duration_s)}.")
