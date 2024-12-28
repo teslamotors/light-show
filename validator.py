@@ -49,7 +49,10 @@ if __name__ == "__main__":
     else:
         file_path = input("Please enter the path by dragging and dropping the .fseq file: ")
         print("")
-        file_path = file_path.strip('"') # Remove surrounding quotes if they exist
+        file_path = file_path.strip('"') # Remove surrounding quotes if they exist (Windows)
+        file_path = file_path.strip(' ') # Remove spaces (macOS)
+        if file_path.startswith("file://"):
+            file_path = file_path[7:]   # Remove file:// (packaged macOS)
         
     with open(file_path, "rb") as file:
         try:
