@@ -7,7 +7,9 @@ Welcome to the Tesla Light Show xLights guide! You can create and run your own l
 ## Running a custom show on a vehicle
 A custom show can be run on a supported vehicle by loading it via a USB flash drive. Create and share your shows with others! A single show can be shared and run on any supported vehicle; they are not model-specific. The sequence data is stored in a .fseq file and the music comes from your choice of .mp3 or .wav.
 ### Download a Show
-Multiple light show repositories can be found online. A screenshot from [TeslaLightShare.io](https://teslalightshare.io/) is below.
+Multiple light show repositories can be found online. A screenshot from [XLightShows](https://xlightshows.io/) and [TeslaLightShare.io](https://teslalightshare.io/) is below.
+
+<a href="https://xlightshows.io/"><img src="/images/xlightshows_screenshot.png?raw=true" width="1000"/></a>
 
 <a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
 
@@ -117,11 +119,11 @@ or
 11. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
 ## Light Show Sequence Validator Script
-A Python validator script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
+A Python [validator.py](validator.py?raw=true) script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
 Windows user can run validator.py by double clicking the file. Drag and drop the .fseq file into the new window.
 
-Users who do not have Python installed can instead use validator.exe (Windows) or validator.app (macOS).
+Users who do not have Python installed can instead use [validator-windows.exe](validator-windows.exe?raw=true) or [validator-macos](validator-macos?raw=true) (on macOS, run with Ctrl + Left Click -> Open).
 
 Alternatively, run:
 ```
