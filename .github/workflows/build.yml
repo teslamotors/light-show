@@ -47,7 +47,7 @@ jobs:
 
       - name: Build macOS Executable
         run: |
-          pyinstaller --onefile validator.py
+          pyinstaller --target-arch universal2 --onefile validator.py
           mv dist/validator ./  # Move executable to root for easy access
 
       - name: Upload macOS Build Artifact
