@@ -51,8 +51,6 @@ if __name__ == "__main__":
         print("")
         file_path = file_path.strip('"') # Remove surrounding quotes if they exist (Windows)
         file_path = file_path.strip(' ') # Remove spaces (macOS)
-        if file_path.startswith("file://"):
-            file_path = file_path[7:]   # Remove file:// (packaged macOS)
         
     with open(file_path, "rb") as file:
         try:
