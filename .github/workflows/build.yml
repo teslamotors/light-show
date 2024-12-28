@@ -1,0 +1,63 @@
+name: Build Executable
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests targeting main branch
+
+jobs:
+  # Build for Windows
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'  # Set the Python version
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      - name: Build Windows Executable
+        run: |
+          pyinstaller --onefile validator.py
+          mv dist/validator.exe ./  # Move executable to root for easy access
+
+      - name: Upload Windows Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: windows-validator
+          path: validator.exe
+
+  # Build for macOS
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'  # Set the Python version
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      - name: Build macOS Executable
+        run: |
+          pyinstaller --onefile validator.py
+          mv dist/validator ./  # Move executable to root for easy access
+
+      - name: Upload macOS Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: macos-validator
+          path: validator
+
