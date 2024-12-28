@@ -1,12 +1,7 @@
 name: Build Executable
 
 on:
-  push:
-    branches:
-      - main  # Trigger on push to main branch
-  pull_request:
-    branches:
-      - main  # Trigger on pull requests targeting main branch
+  workflow_dispatch:
 
 jobs:
   # Build for Windows
