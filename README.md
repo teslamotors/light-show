@@ -123,7 +123,7 @@ A Python [validator.py](validator.py) script is provided to help check if your c
 
 Windows user can run validator.py by double clicking the file. Drag and drop the .fseq file into the new window.
 
-Users who do not have Python installed can instead use [validator-windows.exe](validator-windows.exe?raw=true) or [validator-macos](validator-macos?raw=true) (on macOS, run with Ctrl + Left Click -> Open).
+Users who do not have Python installed can instead use [validator-windows.exe](validator-windows.exe?raw=true) or [validator-macos](validator-macos.zip?raw=true) (on macOS, run with Ctrl + Left Click -> Open).
 
 Alternatively, run:
 ```
