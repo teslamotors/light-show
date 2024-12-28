@@ -440,3 +440,4 @@ All old .xsq and .fseq files are fully compatible with this light show update. Y
 - Press "Render All" to see the imported effects in the preview.
 
     <img src="/images/convert_render_all.png?raw=true" width="300" />
+
