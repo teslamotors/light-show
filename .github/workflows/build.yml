@@ -9,10 +9,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.7'  # Set the Python version
 
@@ -25,7 +25,7 @@ jobs:
           mv dist/validator.exe ./  # Move executable to root for easy access
 
       - name: Upload Windows Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: windows-validator
           path: validator.exe
@@ -35,10 +35,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.7'  # Set the Python version
 
@@ -51,7 +51,7 @@ jobs:
           mv dist/validator ./  # Move executable to root for easy access
 
       - name: Upload macOS Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: macos-validator
           path: validator
