@@ -7,7 +7,9 @@ Welcome to the Tesla Light Show xLights guide! You can create and run your own l
 ## Running a custom show on a vehicle
 A custom show can be run on a supported vehicle by loading it via a USB flash drive. Create and share your shows with others! A single show can be shared and run on any supported vehicle; they are not model-specific. The sequence data is stored in a .fseq file and the music comes from your choice of .mp3 or .wav.
 ### Download a Show
-Multiple light show repositories can be found online. A screenshot from [TeslaLightShare.io](https://teslalightshare.io/) is below.
+Multiple light show repositories can be found online. A screenshot from [XLightShows](https://xlightshows.io/) and [TeslaLightShare.io](https://teslalightshare.io/) is below.
+
+<a href="https://xlightshows.io/"><img src="/images/xlightshows_screenshot.png?raw=true" width="1000"/></a>
 
 <a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
 
@@ -47,17 +49,8 @@ Multiple light show repositories can be found online. A screenshot from [TeslaLi
 - Error messages will be provided if the required files exist but there is a problem with the light show sequence file.
 
 ## <a name="show_limits"></a>General Limitations of Custom Shows
-- The maximum duration for a custom Tesla xLights show is 5 minutes.
-- The maximum number of commands during a custom show is 3500:
-    - Any transition of a light or closure contributes towards this command limit. Eg, turning a light on and off is 2 transitions.
-    - Within each of the following 3 categories, transitions that happen at the same timestamp will only contribute 1 command towards the overall limit. Therefore, within these categories, it is recommended to align transitions at the same timestamp as much as possible.
-        - Boolean light
-        - Ramping light
-        - Closures
-   - In this example, two lights will be turned on and off again, one will be ramped and turn off again, and one closure will start moving. Because they're aligned, this effect only counts as two transitions - One at the beginning, and one at the end of the effect.
-
-     <img src="/images/aligning_example.png?raw=true" width="500" />
-
+- The maximum duration for a custom Tesla xLights show is 4 hours.
+- The limit on number of commands during a custom show has been removed.
 ## Audio file requirements
 You can use both the mp3 and wav format (.wav is recommended).
 Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz files won't properly sync to the light show.
@@ -77,7 +70,7 @@ Make sure the file is encoded with a sample rate of 44.1 kHz; less common 48 kHz
 
     <img src="/images/3d_preview.png?raw=true" width="750" />
 
-8. Select the Sequencer tab. For the best editing experience, only the timeline and House Preview are needed.
+8. Select the Sequencer tab.
 
     <img src="/images/xlights_layout.png?raw=true" width="950" />
 
@@ -126,9 +119,13 @@ or
 11. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
 ## Light Show Sequence Validator Script
-A Python validator script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
+A Python [validator.py](validator.py) script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
-For usage, run:
+Windows user can run validator.py by double clicking the file. Drag and drop the .fseq file into the new window.
+
+Users who do not have Python installed can instead use [validator-windows.exe](validator-windows.exe?raw=true) or [validator-macos](validator-macos.zip?raw=true) (on macOS, run with Ctrl + Left Click -> Open).
+
+Alternatively, run:
 ```
 python validator.py lightshow.fseq
 ```
@@ -141,7 +138,6 @@ Expected output looks like:
 ```
 > python validator.py lightshow.fseq
 Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
-Used 16.45% of the available memory
 ```
 
 ## Boolean Light Channels
@@ -159,18 +155,20 @@ In this example, the Left Front Fog turns on and off 3x:
 Some channels can have a slow ramp in the intensity during turn-on or turn-off, to create graceful visual effects. Some even allow for full brightness control:
 | Channel | Model S | Model X | Model 3/Y | Cybertruck |
 | --- | --- | --- | --- | --- |
-| Outer Main Beam  | Ramping | Ramping | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights | Ramping |
+| Outer Main Beam  | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights | Ramping on LED reflector headlights; <br> Boolean on LED projector headlights | Ramping |
 | Inner Main Beam | Ramping | Ramping | Ramping | Ramping |
 | Signature | Boolean | Boolean | Ramping | - |
 | Channels 4-6 | Ramping | Ramping | Ramping | - |
 | Front Turn | Boolean | Boolean | Ramping | Ramping |
 | Front Side Markers | Boolean | Boolean | Boolean | Ramping |
 | Front Light Bar | - | - | - | Full Brightness Control |
-| Offroad Light Bar | - | - | - | ? |
+| Offroad Light Bar | - | - | - | Full Brightness Control |
 | Rear Light Bar | - | - | - | Full Brightness Control |
 | Brake Light | Boolean | Boolean | Boolean | Full Brightness Control |
 | Rear Turn | Boolean | Boolean | Boolean | Full Brightness Control |
-| Bed Lights | - | - | - | Ramping |
+| Bed Lights | - | - | - | Boolean |
+
+Cybertruck Bed Lights always ramp on and off with a 500 ms duration, even with 'Turn on/off; Instant' effects.
 
 ### Ramping light channels
 To command a light to turn on or off and follow a ramp profile, place the effect with the corresponding keyboard shortcut:
@@ -372,8 +370,9 @@ To command a closure to move in a particular manner, place an effect with the fo
 - On Model 3 built before October 2020: left tail, right tail, and license plate lights operate together. They will activate during ```(Left tail || Right tail)``` requests from xLights - note that the license plate lights xLights channel will have no effect on these vehicles.
 
 #### Cybertruck Light Bar
-- The front and rear light bar have 60 individually controllable LEDs each.
-- It's recommended to use xLights' integreated effects to program the light bar. Good ones for getting started are: Curtain, Marble, Morph and On. Most effects can be customized using the 'Effect Settings' Window. The visualization will display all effects accurately, but keep in mind that the lights are very diffused.
+- The front light bar has 60 individually controllable LEDs each.
+- The rear light bar has 52 individually controllable LEDs each. 
+- It's recommended to use xLights' integreated effects to program the light bar. Good ones for getting started are: Curtain, Bars, Marble, Morph and On. Most effects can be customized using the 'Effect Settings' Window. The visualization will display all effects accurately, but keep in mind that the lights are very diffused.
 
     <img src="/images/xlights_integrated_effects.png?raw=true" width="1000" />
 
@@ -383,27 +382,49 @@ To command a closure to move in a particular manner, place an effect with the fo
 
     <img src="/images/lightbar_timeline.png?raw=true" width="900" />
     
-- The rear light bar is grouped into the same three segments. Center consists of the 52 LEDs on the bed door, while Left/Right are 4 LEDs each above the Turn Signals.
+- The rear light bar is grouped into the same three segments: Left, Center, Right:
+    - The center segment includes all 52 LEDs located on the bed door.
+    - In last year's release, 4 LEDs were mistakenly assigned to the left and right segments. These segments are now empty but have been retained for backward compatibility.
+        - On a very small amount of exisiting shows, this might generate a "Sequence Element Mismatch" warning when opening them with the updated xLights configuration.
+        - You can proceed to open the show by selecting "Delete this element from the sequence".
 - Even the individual LEDs can be programmed by double clicking on the segments (Left, Center, Right) in the timeline.
 
 #### Cybertruck Offroad Light Bar
 - The offroad light bar is an optional upgrade. Most Cybertrucks won't have them installed.
-- The offroad light bar consists of six LEDs. Two side-facing ditch lights, four forward-facing lights.
-- The LEDs can be controlled individually by double clicking the Offroad Light Bar in the timeline, then double clicking 'Strand 1'
+- The offroad light bar consists of six segments. Two side-facing ditch lights, four forward-facing lights.
+- The LEDs can be controlled individually by double clicking the Offroad Light Bar in the timeline, then double clicking 'Strand 1'.
 
 #### Cybertruck Light Remapping
 To make old light shows look as good as possible on the new Cybertruck's lights, the following channels are remapped:
-- Reverse Lights are activated with L/R Tail in XLights for individual L/R control.
-- L/R Rear Side Markers are activated with L/R Side Repeaters in XLights.
-- Powered Frunk is activated by Liftgate in XLights.
-- Frunk Light is activated by Aux Park in XLights.
-- Bed Lights are activated with Reverse Light in XLights.
+- Reverse Lights are activated with L/R Tail in xLights for individual L/R control.
+- L/R Rear Side Markers are activated with L/R Side Repeaters in xLights.
+- Powered Frunk is activated by Liftgate in xLights.
+- Frunk Light is activated by Aux Park in xLights.
+- Bed Lights are activated with Reverse Light in xLights.
+- L/R Rear Turn Signals have been disabled.
+
+#### Interior RGB Lights
+- There is full RGB control over the color of the Center Front Display.
+    - This visibly lights up the entire interior, even when the show is viewed from outside.
+- On cars with Interior Accent Lights, there is full RGB control over each of the five segments:
+  - Center Front RGB, L/R Front/Rear RGB
+- All Interior RGB Lights, including the screen are grouped into "All Interior RGB".
+    - The groups can be expanded by double clicking for individual control over the segments.
+    - The Front Display is brighter than the Accent lights. For most effects, it is recommended to operate them together.
+- In xLights, recommended effects for RGB effects are: Color Wash, On.
+    - Note: By right-clicking on colors in the Color window, custom color curves can be created with the "On"" effect.
+
+<img src="/images/rgb_interior.png?raw=true" width="800" />
 
 ## Converting old show files
+Old show files only need to be converted to edit them with the updated xLights configuration. Old light shows can be played without issues on updated Teslas.
+All old .xsq and .fseq files are compatible with this light show update.
+- On a very small amount of exisiting shows, there might appear a "Sequence Element Mismatch" warning when opening them with the updated xLights configuration.
+- You can proceed to open the show by selecting "Delete this element from the sequence".
+- This only affects shows which programmed the rear light bar LEDs pixel by pixel.
 ### Pre-2023 update
 All old .xsq and .fseq files are fully compatible with this light show update. You can edit older .xsq files instantly without converting them. Keep in mind that there is no backwards compatibility, once you save them, you won't be able to open them with the old project folder anymore.
 ### Pre-2022 update
-All old .fseq files are fully compatible with this light show update. You only need to convert old show files if you want to edit them with the refreshed XLights configuration.
 - Create a new folder for the converted project and copy the old audio file over.
 - Create a new sequence with the audio file from the new folder.
 - Select Import -> Import Effects and choose your old .xsq file.
@@ -421,3 +442,4 @@ All old .fseq files are fully compatible with this light show update. You only n
 - Press "Render All" to see the imported effects in the preview.
 
     <img src="/images/convert_render_all.png?raw=true" width="300" />
+
