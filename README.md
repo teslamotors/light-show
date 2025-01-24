@@ -27,7 +27,7 @@ Multiple light show repositories can be found online. A screenshot from [XLightS
   - a show .mp3 or .wav file (wav is recommended)
 - The fseq filename must match the mp3/wav filenames
     - E.g., show1.fseq/show1.wav can exist with show2.fseq/show2.mp3
-- Multiple shows can be stored on 1 USB drive (2023.44.25+ Vehicle Software)
+- Multiple shows can be stored on 1 USB drive (2023.44.25+ Vehicle Software).
 - Must be formatted as exFAT, FAT 32 (for Windows), MS-DOS FAT (for Mac), ext3, or ext4. NTFS is currently not supported.
 - Must **not** contain a base-level TeslaCam folder.
 - Must **not** contain any map update or firmware update files.
@@ -90,29 +90,29 @@ or
 
 ## Creating a new sequence
 1. Follow the [getting started](#getting_started) instructions to set up the xLights project.
-2. Select File > New Sequence
-3. Select Musical Sequence
+2. Select File > New Sequence.
+3. Select Musical Sequence.
 4. Navigate to your chosen .wav or mp3 file, select it, then select Open. Note that .wav files may be hidden unless file type is set to xLights Audio Files.
 
     <img src="/images/wav_hidden.png?raw=true" width="450" />
 
-5. In the Wizard tab select Custom
+5. In the Wizard tab select Custom.
 6. Change the Frame interval to 20ms then select OK.
 
      <img src="/images/sequence_setting_20ms.png?raw=true" width="500" />
 
     Note: any value between 15ms and 100ms is supported by the vehicle, but 20ms is recommended for nearly all use cases. The [maximum show size limits](#show_limits) do not depend on the frame interval.
 
-7. Select Quick Start and wait for the sequencer to load
+7. Select Quick Start and wait for the sequencer to load.
 8. In the top left of the timeline, select "Group View" in the view selector. You can also choose "Old View" for the pre-update layout.
 
     <img src="/images/groups_select_view.png?raw=true" width="450" />
 
-9. If using the recommended "Group View", you can double click the light groups to reveal and hide individual left/right control. Placing light effects in the group object will activate both the left and right light
+9. If using the recommended "Group View", you can double click the light groups to reveal and hide individual left/right control. Placing light effects in the group object will activate both the left and right light.
 
     <img src="/images/groups_left_right.png?raw=true" width="450" />
 
-10. If using the old view, double click on "GRP Tesla Model S" to view all channels
+10. If using the old view, double click on "GRP Tesla Model S" to view all channels.
 
     <img src="/images/all_lights_closures_old.png?raw=true" width="450" />
 
@@ -341,7 +341,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 
 #### <a name="ramping_channels_4_6"></a>Ramping Channels 4-6
 - For Model S/X:
-    - Individual on/off control is supported for each channel
+    - Individual on/off control is supported for each channel.
     - Only a single ramping duration is allowed between all 3 channels.
     - The ramping duration for all 3 is defined only by the effect placed in xLights for Channel 4.
 - For Model 3/Y:
@@ -407,7 +407,7 @@ To make old light shows look as good as possible on the new Cybertruck's lights,
 - There is full RGB control over the color of the Center Front Display.
     - This visibly lights up the entire interior, even when the show is viewed from outside.
 - On cars with Interior Accent Lights, there is full RGB control over each of the five segments:
-  - Center Front RGB, L/R Front/Rear RGB
+  - Center Front RGB, L/R Front/Rear RGB.
 - All Interior RGB Lights, including the screen are grouped into "All Interior RGB".
     - The groups can be expanded by double clicking for individual control over the segments.
     - The Front Display is brighter than the Accent lights. For most effects, it is recommended to operate them together.
