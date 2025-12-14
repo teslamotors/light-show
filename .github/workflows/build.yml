@@ -1,58 +1,249 @@
-name: Build Executable
+name: Build Tesla Light-Show Validator
 
 on:
   workflow_dispatch:
+    inputs:
+      python_version:
+        description: 'Python version to use'
+        required: false
+        default: '3.11'
+        type: string
+      include_linux:
+        description: 'Include Linux build'
+        required: false
+        default: true
+        type: boolean
+      create_release:
+        description: 'Create GitHub release'
+        required: false
+        default: false
+        type: boolean
+  push:
+    tags:
+      - 'v*.*.*'  # Auto-build on version tags
+  pull_request:
+    branches: [main, master]
 
+# Add environment variables
+env:
+  PROJECT_NAME: "tesla-lightshow-validator"
+  APP_VERSION: ${{ github.ref_name }}
+  
+# Cache key for dependencies
 jobs:
-  # Build for Windows
-  windows:
-    runs-on: windows-latest
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+      timestamp: ${{ steps.timestamp.outputs.time }}
+    
+    steps:
+      - name: Get version from code
+        id: get_version
+        run: |
+          # Extract version from Python file if available
+          VERSION=$(grep -m1 "__version__" validator.py 2>/dev/null | cut -d'"' -f2 || echo "1.0.0")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "time=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+
+  test:
+    needs: setup
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.10', '3.11']
+      fail-fast: false
+    
+    runs-on: ${{ matrix.os }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Python
+        
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'  # Latest stable python3 version
-
-      - name: Install PyInstaller
-        run: pip install pyinstaller
-
-      - name: Build Windows Executable
-        run: |
-          pyinstaller --onefile validator.py
-          mv dist/validator.exe ./  # Move executable to root for easy access
-
-      - name: Upload Windows Build Artifact
-        uses: actions/upload-artifact@v4
+          python-version: ${{ matrix.python-version }}
+          
+      - name: Cache pip packages
+        uses: actions/cache@v3
         with:
-          name: windows-validator
-          path: validator.exe
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pytest-cov
+          
+      - name: Run tests
+        run: |
+          if [ -f test_validator.py ]; then
+            pytest test_validator.py --cov=validator --cov-report=xml
+          else
+            echo "No tests found, skipping test execution"
+          fi
+          
+      - name: Upload test coverage
+        uses: codecov/codecov-action@v3
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'
 
-  # Build for macOS
-  macos:
-    runs-on: macos-latest
+  build:
+    needs: [setup, test]
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact_name: validator-windows.exe
+            pyinstaller_args: --onefile --console validator.py
+            binary_name: validator.exe
+            arch: x64
+          
+          - os: macos-latest
+            artifact_name: validator-macos
+            pyinstaller_args: --target-arch universal2 --onefile validator.py
+            binary_name: validator
+            arch: universal2
+            
+          - os: ubuntu-latest
+            artifact_name: validator-linux
+            pyinstaller_args: --onefile validator.py
+            binary_name: validator
+            arch: x64
+    
+    runs-on: ${{ matrix.os }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Python
+        with:
+          fetch-depth: 0
+          
+      - name: Set up Python ${{ github.event.inputs.python_version || '3.11' }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'  # Latest stable python3 version
-
-      - name: Install PyInstaller
-        run: pip install pyinstaller
-
-      - name: Build macOS Executable
+          python-version: ${{ github.event.inputs.python_version || '3.11' }}
+          
+      - name: Cache pip packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            
+      - name: Install build dependencies
         run: |
-          pyinstaller --target-arch universal2 --onefile validator.py
-          mv dist/validator ./  # Move executable to root for easy access
-
-      - name: Upload macOS Build Artifact
+          python -m pip install --upgrade pip setuptools wheel
+          pip install pyinstaller
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Build executable
+        run: |
+          echo "Building ${{ matrix.artifact_name }} for ${{ matrix.arch }}"
+          pyinstaller ${{ matrix.pyinstaller_args }}
+          
+          # Verify the build
+          if [ -f "dist/${{ matrix.binary_name }}" ]; then
+            echo "Build successful!"
+            ls -la dist/
+          else
+            echo "Build failed!"
+            exit 1
+          fi
+          
+      - name: Get file information
+        run: |
+          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+            dir dist\${{ matrix.binary_name }}
+          else
+            ls -lh dist/${{ matrix.binary_name }}
+            file dist/${{ matrix.binary_name }}
+          fi
+          
+      - name: Rename and prepare artifact
+        run: |
+          mv dist/${{ matrix.binary_name }} ${{ matrix.artifact_name }}
+          
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: macos-validator
-          path: validator
-
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_name }}
+          retention-days: 7
+          
+  release:
+    needs: [setup, build]
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_release || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Tesla Light-Show Validator v${{ needs.setup.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          body: |
+            ## Tesla Light-Show Validator ${{ needs.setup.outputs.version }}
+            
+            ### Build Information
+            - **Build Date:** ${{ needs.setup.outputs.timestamp }}
+            - **Commit:** ${{ github.sha }}
+            
+            ### Executables Included:
+            - `validator-windows.exe` - Windows 64-bit
+            - `validator-macos` - macOS Universal (Intel & Apple Silicon)
+            - `validator-linux` - Linux 64-bit
+            
+            ### Installation
+            1. Download the executable for your platform
+            2. Make it executable (Linux/macOS): `chmod +x validator-*`
+            3. Run: `./validator-*` or double-click (Windows)
+            
+            ### Usage
+            ```bash
+            # Validate a light show directory
+            ./validator-windows.exe path/to/lightshow/
+            ```
+            
+            ### SHA256 Checksums:
+            ```
+            ${{ steps.checksums.outputs.checksums }}
+            ```
+          draft: false
+          prerelease: false
+          files: |
+            artifacts/*/validator-*
+            
+      - name: Generate checksums
+        id: checksums
+        run: |
+          cd artifacts
+          find . -name "validator-*" -type f | while read file; do
+            if command -v sha256sum &> /dev/null; then
+              checksum=$(sha256sum "$file" | cut -d' ' -f1)
+            elif command -v shasum &> /dev/null; then
+              checksum=$(shasum -a 256 "$file" | cut -d' ' -f1)
+            fi
+            echo "$(basename "$file"): $checksum"
+          done | tee checksums.txt
+          echo "checksums<<EOF" >> $GITHUB_OUTPUT
+          cat checksums.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Upload checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksums
+          path: artifacts/checksums.txt
