@@ -1,20 +1,31 @@
-# Requires Python 3.7+
+#!/usr/bin/env python3
+# Requires Python 3.7+ (Versions older than 3.10 are EOL)
 import dataclasses
 import struct
 import sys
 import datetime
 
 class ValidationError(Exception):
+    """Create a generic exception with the name: ValidationError."""
     pass
+
 
 @dataclasses.dataclass
 class ValidationResults:
+    """Data class for storing validation results of a light show."""
+
     frame_count: int
     step_time: int
     duration_s: int
 
+
+def clean_file_path(path):
+    """Remove surrounding quotes and whitespace from file path."""
+    return path.strip('\'" ')
+
+
 def validate(file):
-    """Checks format and length of the provided .fseq file"""
+    """Checks format and length of the provided .fseq file."""
     magic = file.read(4)
     start, minor, major = struct.unpack("<HBB", file.read(4))
     file.seek(10)
@@ -34,24 +45,24 @@ def validate(file):
     if ((minor != 0) and (minor != 2)) or (major != 2):
         print("")
         print(f"WARNING: FSEQ version is {major}.{minor}. Only version 2.0 and 2.2 have been validated.")
-        print(f"If the car fails to read this file, download an older version of XLights at https://github.com/smeighan/xLights/releases")
-        print(f"Please report this message at https://github.com/teslamotors/light-show/issues")
+        print("If the car fails to read this file, download an older version of XLights at https://github.com/smeighan/xLights/releases")
+        print("Please report this message at https://github.com/teslamotors/light-show/issues")
         print("")
-   
+
     return ValidationResults(frame_count, step_time, duration_s)
+
 
 if __name__ == "__main__":
     # Expected usage: python3 validator.py lightshow.fseq
 
     # Check if a file argument is provided
     if len(sys.argv) > 1:
-        file_path = sys.argv[1]
+        file_path = clean_file_path(sys.argv[1])
     else:
         file_path = input("Please enter the path by dragging and dropping the .fseq file: ")
         print("")
-        file_path = file_path.strip('"') # Remove surrounding quotes if they exist (Windows)
-        file_path = file_path.strip(' ') # Remove spaces (macOS)
-        
+        file_path = clean_file_path(file_path)
+
     with open(file_path, "rb") as file:
         try:
             results = validate(file)
