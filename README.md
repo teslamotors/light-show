@@ -7,11 +7,15 @@ Welcome to the Tesla Light Show xLights guide! You can create and run your own l
 ## Running a custom show on a vehicle
 A custom show can be run on a supported vehicle by loading it via a USB flash drive. Create and share your shows with others! A single show can be shared and run on any supported vehicle; they are not model-specific. The sequence data is stored in a .fseq file and the music comes from your choice of .mp3 or .wav.
 ### Download a Show
-Multiple light show repositories can be found online. A screenshot from [XLightShows](https://xlightshows.io/) and [TeslaLightShare.io](https://teslalightshare.io/) is below.
+Multiple light show repositories can be found online. A screenshot from [XLightShows](https://xlightshows.io/) and [TeslaLightShare.io](https://teslalightshare.io/) is below. 
 
 <a href="https://xlightshows.io/"><img src="/images/xlightshows_screenshot.png?raw=true" width="1000"/></a>
 
 <a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
+
+There's also a browser-based builder tool that skips xLights entirely. [That Lightshow Builder](https://thatteslalightshow.com) lets you create a custom show in minutes.
+
+<a href="https://thatteslalightshow.com"><img src="/images/Lightshow_builder.png?raw=true" width="1000"/></a>
 
 ### Supported Vehicles
 - Model S (2021+)
