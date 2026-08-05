@@ -12,6 +12,7 @@ Multiple light show repositories can be found online. A screenshot from [XLightS
 <a href="https://xlightshows.io/"><img src="/images/xlightshows_screenshot.png?raw=true" width="1000"/></a>
 
 <a href="https://thatteslalightshow.com"><img src="/images/Lightshow_builder.png?raw=true" width="1000"/></a>
+
 <a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
 
 ### Supported Vehicles
