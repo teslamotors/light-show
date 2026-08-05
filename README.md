@@ -10,8 +10,8 @@ A custom show can be run on a supported vehicle by loading it via a USB flash dr
 Multiple light show repositories can be found online. A screenshot from [XLightShows](https://xlightshows.io/) and [TeslaLightShare.io](https://teslalightshare.io/) is below. There's also a browser-based builder tool that skips xLights entirely. [ThatTeslaLightshow Builder](https://thatteslalightshow.com) lets you create a custom show in minutes.
 
 <a href="https://xlightshows.io/"><img src="/images/xlightshows_screenshot.png?raw=true" width="1000"/></a>
-<a href="https://thatteslalightshow.com"><img src="/images/lightshow_builder.png?raw=true" width="1000"/>
-</a>
+
+<a href="https://thatteslalightshow.com"><img src="/images/Lightshow_builder.png?raw=true" width="1000"/></a>
 <a href="https://teslalightshare.io/"><img src="/images/tesla_light_share_screenshot.png?raw=true" width="1000"/></a>
 
 ### Supported Vehicles
