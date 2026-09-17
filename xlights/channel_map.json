@@ -1,0 +1,758 @@
+{
+  "$comment": "Channel assignment of every model in the xLights show folder. tools/xlights_layers.py verify fails if the show folder zip ever stops matching this file, which would silently break .fseq files exported from earlier versions of the project. Regenerate with `python3 tools/xlights_layers.py fingerprint` only as part of a change that intends to remap channels.",
+  "entry": "tesla_xlights_show_folder/xlights_rgbeffects.xml",
+  "attributes": [
+    "DisplayAs",
+    "StringType",
+    "StartChannel",
+    "parm1",
+    "parm2",
+    "parm3"
+  ],
+  "models": {
+    "Brake Lights": {
+      "DisplayAs": "Custom",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:25",
+      "parm1": "3",
+      "parm2": "2",
+      "parm3": "1"
+    },
+    "CT Brake Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:25",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Center Front Display": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:176",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Center Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:185",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "CT Charge Port": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:46",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Frunk Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:17",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Bed Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:28",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:188",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "80"
+    },
+    "CT Left Front Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:19",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Front Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:13",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Front Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:37",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Inner Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:3",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Mirror": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:35",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Outer Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:1",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Rear RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:191",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "CT Left Rear Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:21",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Rear Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:23",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Rear Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:38",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Left Reverse Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:26",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT License Plate": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:30",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Bed Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:28",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:182",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "80"
+    },
+    "CT Right Front Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:20",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Front Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:14",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Front Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:39",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Inner Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:4",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Mirror": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:36",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Outer Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:2",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Rear RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:179",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "CT Right Rear Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:22",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Rear Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:24",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Rear Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:40",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "CT Right Reverse Light": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:27",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Center Front Display": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:176",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Center Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:185",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "Charge Port": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:46",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Front Light Bar": {
+      "DisplayAs": "Poly Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:47",
+      "parm1": "1",
+      "parm2": "60",
+      "parm3": "1"
+    },
+    "Left Aux Park": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:17",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Channel 4": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:7",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Channel 5": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:9",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Channel 6": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:11",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Falcon Door": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:31",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Front Door": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:33",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Front Door Handle": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:42",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Front Fog": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:15",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Front Light Bar": {
+      "DisplayAs": "Single Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:47",
+      "parm1": "1",
+      "parm2": "30",
+      "parm3": "1"
+    },
+    "Left Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:188",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "Left Front Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:13",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Front Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:37",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Inner Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:3",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Mirror": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:35",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Outer Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:1",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Rear Door Handle": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:43",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Rear Light Bar": {
+      "DisplayAs": "Single Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:111",
+      "parm1": "1",
+      "parm2": "26",
+      "parm3": "1"
+    },
+    "Left Rear RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:191",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "Left Rear Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:23",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Rear Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:38",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:19",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Side Repeater": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:21",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Signature": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:5",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Left Tail": {
+      "DisplayAs": "Custom",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:26",
+      "parm1": "10",
+      "parm2": "15",
+      "parm3": "1"
+    },
+    "License Plate": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:30",
+      "parm1": "1",
+      "parm2": "2",
+      "parm3": "1"
+    },
+    "Liftgate": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:41",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Offroad Light Bar": {
+      "DisplayAs": "Single Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:167",
+      "parm1": "1",
+      "parm2": "6",
+      "parm3": "1"
+    },
+    "Powered Frunk": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:41",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Rear Fog Lights": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:29",
+      "parm1": "1",
+      "parm2": "2",
+      "parm3": "1"
+    },
+    "Rear Light Bar": {
+      "DisplayAs": "Poly Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:111",
+      "parm1": "1",
+      "parm2": "52",
+      "parm3": "1"
+    },
+    "Reverse Lights": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:28",
+      "parm1": "1",
+      "parm2": "2",
+      "parm3": "1"
+    },
+    "Right Aux Park": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:18",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Channel 4": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:8",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Channel 5": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:10",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Channel 6": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:12",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Falcon Door": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:32",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Front Door": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:34",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Front Door Handle": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:44",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Front Fog": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:16",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Front Light Bar": {
+      "DisplayAs": "Single Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:77",
+      "parm1": "1",
+      "parm2": "30",
+      "parm3": "1"
+    },
+    "Right Front RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:182",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "Right Front Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:14",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Front Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:39",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Inner Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:4",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Mirror": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:36",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Outer Main Beam": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:2",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Rear Door Handle": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:45",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Rear Light Bar": {
+      "DisplayAs": "Single Line",
+      "StringType": "Node Single Color",
+      "StartChannel": "!Model S:137",
+      "parm1": "1",
+      "parm2": "26",
+      "parm3": "1"
+    },
+    "Right Rear RGB": {
+      "DisplayAs": "Single Line",
+      "StringType": "RGB Nodes",
+      "StartChannel": "!Model S:179",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "50"
+    },
+    "Right Rear Turn": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:24",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Rear Window": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:40",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Side Marker": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:20",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Side Repeater": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:22",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Signature": {
+      "DisplayAs": "Single Line",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:6",
+      "parm1": "1",
+      "parm2": "1",
+      "parm3": "1"
+    },
+    "Right Tail": {
+      "DisplayAs": "Custom",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:27",
+      "parm1": "10",
+      "parm2": "15",
+      "parm3": "1"
+    },
+    "Suspension": {
+      "DisplayAs": "Custom",
+      "StringType": "Single Color White",
+      "StartChannel": "!Model S:175",
+      "parm1": "2",
+      "parm2": "1",
+      "parm3": "1"
+    }
+  }
+}

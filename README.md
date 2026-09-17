@@ -104,7 +104,7 @@ or
     Note: any value between 15ms and 100ms is supported by the vehicle, but 20ms is recommended for nearly all use cases. The [maximum show size limits](#show_limits) do not depend on the frame interval.
 
 7. Select Quick Start and wait for the sequencer to load
-8. In the top left of the timeline, select "Group View" in the view selector. You can also choose "Old View" for the pre-update layout.
+8. In the top left of the timeline, select a view in the view selector. "Group View" groups channels by light type, ["Layer View"](#layer_view) groups them by position on the vehicle, and "Old View" is the pre-update layout.
 
     <img src="/images/groups_select_view.png?raw=true" width="450" />
 
@@ -118,10 +118,63 @@ or
 
 11. For more information on the workflow of creating xLights sequences, please use existing online resources. The rest of these instructions contain Tesla-specific information for show creators.
 
+### <a name="layer_view"></a>Grouping channels by position: "Layer View"
+"Group View" is organized by *light type* — one row for both front turn signals,
+one row for both mirrors, and so on. That is the right layout when you want the
+left and right of a light to behave as a pair, but it makes "light up everything
+on the front left of the car" a matter of placing the same effect on a dozen
+separate rows.
+
+"Layer View" is organized by *position on the vehicle* instead. Each row is a
+region of the car, so a single effect covers everything in that region:
+
+| Layer | Contains |
+| --- | --- |
+| `LAYER Front Left` | Every front-left exterior light: main beams, signature, channels 4-6, turn, fog, aux park and side marker |
+| `LAYER Front Right` | The mirror image of the above |
+| `LAYER Rear Left` | Left side repeater, rear turn and tail light |
+| `LAYER Rear Right` | The mirror image of the above |
+| `LAYER Rear Center` | Brake lights, reverse lights, rear fog and license plate — the rear lights with no independent left/right control |
+| `LAYER All Doors` | Front doors and falcon doors |
+
+`LAYER Front Left` and `LAYER Front Right` together contain exactly the same
+lights as the existing "Front" group, and the three rear layers together contain
+exactly the "Rear" group, so nothing is left out and nothing is covered twice.
+Double click any layer to expand it and control the individual lights inside.
+
+Three more layers are available from the Layout tab for anyone building a custom
+view. They are not rows in "Layer View" because they overlap the rows above:
+
+- `LAYER Left Side` — the whole left flank, front and rear, including the Cybertruck light bar segments
+- `LAYER Right Side` — the mirror image
+- `LAYER All Closures` — every moving closure: doors, windows, mirrors, door handles, liftgate and charge port
+
+Closures still move at their own pace, so see [closure movement durations](#closure_movement_durations)
+before putting a fast effect on `LAYER All Doors` or `LAYER All Closures`.
+
 ## Light Show Sequence Validator Script
 A Python [validator.py](validator.py) script is provided to help check if your custom light show sequence meets these limitations, without needing a Tesla vehicle.
 
 Windows user can run validator.py by double clicking the file. Drag and drop the .fseq file into the new window.
+
+## Checking the xLights show folder
+The show folder ships as a .zip, so its contents cannot be reviewed from a diff.
+Two files in `xlights/` describe what is inside it:
+
+- `layer_groups.json` — the model groups and view added for position-based layers
+- `channel_map.json` — the channel every model is assigned to
+
+`tools/xlights_layers.py` keeps the .zip and those files in agreement:
+
+```
+python3 tools/xlights_layers.py verify   # check the show folder (run by CI)
+python3 tools/xlights_layers.py apply    # write layer_groups.json into the .zip
+```
+
+`verify` fails if any model's channel assignment changes, which is what protects
+.fseq files exported from earlier versions of this project from silently
+breaking. Contributors changing the show folder should run it before opening a
+pull request; it needs only Python 3.7+ and no packages.
 
 Users who do not have Python installed can instead use [validator-windows.exe](validator-windows.exe?raw=true) or [validator-macos](validator-macos.zip?raw=true) (on macOS, run with Ctrl + Left Click -> Open).
 

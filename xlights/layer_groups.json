@@ -1,0 +1,179 @@
+{
+  "$comment": [
+    "Source of truth for the positional 'layer' model groups added to the xLights",
+    "show folder (teslamotors/light-show#11).",
+    "",
+    "The show folder itself ships as a binary .zip, so this file exists to keep the",
+    "change reviewable and machine-checkable. tools/xlights_layers.py writes these",
+    "groups into tesla_xlights_show_folder/xlights_rgbeffects.xml inside the zip and",
+    "verifies (in CI) that the zip still matches this file.",
+    "",
+    "Model groups are a sequencer-side construct only: they reference existing models",
+    "by name and never define channels of their own. Adding them therefore cannot",
+    "change the generated .fseq channel layout. That is enforced separately by",
+    "xlights/channel_map.json."
+  ],
+
+  "group_prefix": "LAYER ",
+
+  "preview_models": {
+    "$comment": [
+      "Cybertruck models that exist purely so the 3D layout can show a second",
+      "vehicle. Each one deliberately reuses another model's StartChannel, so it",
+      "must never appear in a timeline group -- doing so would drive one channel",
+      "from two rows. Most are named with a 'CT ' prefix; 'Powered Frunk' is the",
+      "one that is not (it shadows 'Liftgate'), hence the explicit list.",
+      "",
+      "tools/xlights_layers.py verifies that every name here really does share a",
+      "StartChannel with a model outside this set."
+    ],
+    "prefix": "CT ",
+    "also": [
+      "Powered Frunk"
+    ]
+  },
+
+  "view_name": "Layer View",
+
+  "groups": [
+    {
+      "name": "LAYER Front Left",
+      "comment": "Every front-left exterior light. Together with 'LAYER Front Right' this is an exact partition of the existing 'Front' group.",
+      "models": [
+        "Left Outer Main Beam",
+        "Left Inner Main Beam",
+        "Left Signature",
+        "Left Channel 4-6",
+        "Left Front Turn",
+        "Left Front Fog",
+        "Left Aux Park",
+        "Left Side Marker"
+      ]
+    },
+    {
+      "name": "LAYER Front Right",
+      "comment": "Mirror image of 'LAYER Front Left'.",
+      "models": [
+        "Right Outer Main Beam",
+        "Right Inner Main Beam",
+        "Right Signature",
+        "Right Channel 4-6",
+        "Right Front Turn",
+        "Right Front Fog",
+        "Right Aux Park",
+        "Right Side Marker"
+      ]
+    },
+    {
+      "name": "LAYER Rear Left",
+      "comment": "Rear-left exterior lights. Side repeaters are classed as rear to match the existing 'Rear' group.",
+      "models": [
+        "Left Side Repeater",
+        "Left Rear Turn",
+        "Left Tail"
+      ]
+    },
+    {
+      "name": "LAYER Rear Right",
+      "comment": "Mirror image of 'LAYER Rear Left'.",
+      "models": [
+        "Right Side Repeater",
+        "Right Rear Turn",
+        "Right Tail"
+      ]
+    },
+    {
+      "name": "LAYER Rear Center",
+      "comment": "Rear lights that have no independent left/right control. 'LAYER Rear Left' + 'LAYER Rear Right' + this is an exact partition of the existing 'Rear' group.",
+      "models": [
+        "Brake Lights",
+        "Reverse Lights",
+        "Rear Fog Lights",
+        "License Plate"
+      ]
+    },
+    {
+      "name": "LAYER Left Side",
+      "comment": "Everything down the left flank, including the Cybertruck light bar segments. Built from the corner layers so there is a single definition of 'left'.",
+      "models": [
+        "LAYER Front Left",
+        "LAYER Rear Left",
+        "Left Front Light Bar",
+        "Left Rear Light Bar"
+      ]
+    },
+    {
+      "name": "LAYER Right Side",
+      "comment": "Mirror image of 'LAYER Left Side'.",
+      "models": [
+        "LAYER Front Right",
+        "LAYER Rear Right",
+        "Right Front Light Bar",
+        "Right Rear Light Bar"
+      ]
+    },
+    {
+      "name": "LAYER All Doors",
+      "comment": "Front doors and falcon doors. Requested by name in issue #11.",
+      "models": [
+        "Left Front Door",
+        "Right Front Door",
+        "Left Falcon Door",
+        "Right Falcon Door"
+      ]
+    },
+    {
+      "name": "LAYER All Closures",
+      "comment": "Every moving closure. Built from existing groups so it stays correct if those change.",
+      "models": [
+        "LAYER All Doors",
+        "All Windows",
+        "All Mirrors",
+        "All Doors Handles",
+        "All Liftgates",
+        "All Charge Ports"
+      ]
+    }
+  ],
+
+  "view": {
+    "comment": [
+      "Rows shown by the 'Layer View' timeline view. Chosen so that the rows are",
+      "mutually exclusive and together cover every channel the vehicle exposes,",
+      "so an effect placed on one row can never fight an effect on another.",
+      "",
+      "The coarser 'LAYER Left Side' / 'LAYER Right Side' / 'LAYER All Closures'",
+      "groups overlap these rows by design and so are deliberately not listed;",
+      "they are still available from the Layout tab and from custom views."
+    ],
+    "models": [
+      "LAYER Front Left",
+      "LAYER Front Right",
+      "LAYER Rear Left",
+      "LAYER Rear Right",
+      "LAYER Rear Center",
+      "LR Front Light Bar",
+      "LR Rear Light Bar",
+      "Offroad Light Bar",
+      "LAYER All Doors",
+      "All Windows",
+      "All Mirrors",
+      "All Doors Handles",
+      "All Liftgates",
+      "All Charge Ports",
+      "All Interior RGB",
+      "All Suspensions"
+    ]
+  },
+
+  "partition_invariants": [
+    {
+      "whole": "Front",
+      "parts": ["LAYER Front Left", "LAYER Front Right"]
+    },
+    {
+      "whole": "Rear",
+      "parts": ["LAYER Rear Left", "LAYER Rear Right", "LAYER Rear Center"]
+    }
+  ]
+}

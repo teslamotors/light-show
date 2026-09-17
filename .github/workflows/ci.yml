@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  show-folder:
+    name: xLights show folder
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # validator.py documents Python 3.7+; cover the oldest version the
+        # runners still provide through to current.
+        python-version: ['3.9', '3.11', '3.13']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Verify the show folder matches its spec and channel map
+        run: python3 tools/xlights_layers.py verify
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check that `apply` is idempotent
+        # Re-running the generator must leave the committed zip byte-identical.
+        # If it does not, the zip and the spec have drifted apart.
+        run: |
+          python3 tools/xlights_layers.py apply
+          git diff --exit-code -- xlights/
+
+      - name: Check the validator still imports and rejects a bad file
+        run: |
+          python3 -c "
+          import validator, io, sys
+          try:
+              validator.validate(io.BytesIO(b'NOPE' + bytes(32)))
+          except validator.ValidationError:
+              print('validator rejects malformed input as expected')
+              sys.exit(0)
+          sys.exit('validator accepted a malformed file')
+          "

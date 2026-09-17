@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# PyInstaller output from .github/workflows/build.yml
+build/
+dist/
+*.spec
+
+# Scratch file written by tools/xlights_layers.py while rewriting a show folder
+*.zip.tmp
