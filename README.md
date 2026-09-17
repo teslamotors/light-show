@@ -140,6 +140,53 @@ Expected output looks like:
 Found 2247 frames, step time of 20 ms for a total duration of 0:00:44.940000.
 ```
 
+## <a name="vehicle_preview"></a>Vehicle Preview Script
+The xLights project ships a single Model S / Cybertruck superset model, so the sequencer preview always animates every channel as its own instantly-switching light. Real vehicles differ: on Model 3/Y several channels are OR'd onto one physical output, and several lights that are boolean on Model S ramp instead. A show that looks right in the preview can therefore look wrong on the car.
+
+A Python [vehicle_preview.py](tools/vehicle_preview.py) script reports where a given show will not reproduce what the preview showed, for every supported vehicle, without needing the vehicle:
+```
+python3 tools/vehicle_preview.py lightshow.fseq
+```
+To look at one vehicle only, and to include the per-configuration notes:
+```
+python3 tools/vehicle_preview.py lightshow.fseq --vehicle model3 -v
+```
+The vehicle keys are ```models```, ```modelx```, ```model3```, ```modely``` and ```cybertruck```. Add ```--json``` for machine-readable output, or ```--strict``` to exit non-zero when anything is reported, which is useful in a build pipeline.
+
+Expected output looks like, running against [lightshow_example_2](examples/lightshow_example_2_Max_Carlisle_Auld_Lang_Syne_In_the_City.zip?raw=true):
+```
+> python3 tools/vehicle_preview.py lightshow.fseq --vehicle model3
+5762 frames, 20 ms per frame, total duration 1:55.240.
+
+========================================================================
+Model 3  -  4 error(s), 7 warning(s), 19 note(s)
+========================================================================
+
+  [ERROR  ] or-group-never-off at 0:25.240
+    Left Channels 4-6 stays lit for 4060 ms on Model 3 even though every
+    channel in it goes off
+      These channels share one output on Model 3, so the lamp is on
+      whenever any of them is on. Each channel does go off during this
+      stretch, but never at the same time as the others, so the blinking
+      visible in the preview becomes a single 4060 ms glow on the car.
+      Leave a gap that is blank on every channel in the group to make the
+      light actually flash. See README.md, "Light channel mapping
+      recommendations".
+      channels: Left Channel 4 (7), Left Channel 5 (9), Left Channel 6 (11)
+...
+```
+
+### What the script reports
+| Code | Meaning |
+| --- | --- |
+| ```or-group-collapse``` | Channels that the preview animates separately are wired to one output on this vehicle, and the show drives them differently. See [light channel mapping details](#light_channel_mapping_details). |
+| ```or-group-never-off``` | Channels sharing one output blink at different times but never leave a shared gap, so the light sits solid instead of flashing. |
+| ```ramp-too-short``` | A ramping effect ends long before the ramp completes, so the light never gets near its setpoint. Most often a channel that is boolean on Model S but ramping on Model 3/Y. |
+| ```ramp-leader-missing``` | Channel 5 or 6 ramps while Channel 4 has no effect to define the duration. See [Ramping Channels 4-6](#ramping_channels_4_6). |
+| ```ramp-ignored``` | A ramping effect on a channel that is boolean on this vehicle, so it switches instantly here. |
+| ```channel-not-present``` | The show drives a light or closure this vehicle does not have. |
+| ```channel-optional-hardware``` | The light is missing on some builds of this vehicle, for example front fog on Model 3 Standard Range +. |
+
 ## Boolean Light Channels
 Most lights available on the vehicle can only turn on or off instantly, which corresponds to 0% or 100% brightness of an 'Effect' in xLights.
 - For off, use blank space in the xLights timeline
@@ -319,6 +366,7 @@ To command a closure to move in a particular manner, place an effect with the fo
 
 ## Tips for platform-agnostic light shows
 ### Light channel mapping recommendations
+- The [vehicle preview script](#vehicle_preview) reports where a finished show will differ from the xLights preview on each vehicle, which covers most of the cases below automatically.
 - Not all vehicles have all types of lights installed. When turning on/off lights in sync with key parts of the music's beat, try to use lights that are installed on all vehicle variants.
 - Not all vehicles have individual control over every light. In these cases, multiple xLights channels are OR'd together to decide whether to turn on a given group of lights. These are outlined in the section below.
 - For lights that are controlled by multiple OR'd channels, keep in mind that some shared off-time on **all** of the OR'd channels is required to cause an apparent flash of the light.

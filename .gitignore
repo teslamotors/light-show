@@ -1,0 +1,11 @@
+# Python bytecode from running the validator and tooling
+__pycache__/
+*.py[cod]
+
+# Scratch space used by the CI example-show job
+_examples/
+
+# PyInstaller output from .github/workflows/build.yml
+build/
+dist/
+*.spec
